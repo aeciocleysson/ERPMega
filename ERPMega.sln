@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.32106.194
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ERPMega", "ERPMega\ERPMega.csproj", "{E13065E2-1C3D-4CDE-97CD-9E36A0A0EF97}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E13065E2-1C3D-4CDE-97CD-9E36A0A0EF97}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E13065E2-1C3D-4CDE-97CD-9E36A0A0EF97}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E13065E2-1C3D-4CDE-97CD-9E36A0A0EF97}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E13065E2-1C3D-4CDE-97CD-9E36A0A0EF97}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {303EA4D7-DEFC-4095-9EE7-96F4F58D0D8F}
+	EndGlobalSection
+EndGlobal
