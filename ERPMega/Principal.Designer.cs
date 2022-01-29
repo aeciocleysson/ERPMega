@@ -201,6 +201,7 @@ namespace ERPMega
             this.btnDeleteFunc.TabIndex = 14;
             this.btnDeleteFunc.Text = "Excluir";
             this.btnDeleteFunc.UseVisualStyleBackColor = true;
+            this.btnDeleteFunc.Click += new System.EventHandler(this.btnDeleteFunc_Click);
             // 
             // btnSalvarFunc
             // 
@@ -224,6 +225,7 @@ namespace ERPMega
             this.brnCancelarFunc.TabIndex = 13;
             this.brnCancelarFunc.Text = "Cancelar";
             this.brnCancelarFunc.UseVisualStyleBackColor = true;
+            this.brnCancelarFunc.Click += new System.EventHandler(this.brnCancelarFunc_Click);
             // 
             // btnSairFunc
             // 
@@ -340,6 +342,7 @@ namespace ERPMega
             this.dgvFuncionarios.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvFuncionarios.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvFuncionarios.BackgroundColor = System.Drawing.Color.White;
             this.dgvFuncionarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvFuncionarios.Location = new System.Drawing.Point(6, 195);
@@ -347,6 +350,7 @@ namespace ERPMega
             this.dgvFuncionarios.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvFuncionarios.Size = new System.Drawing.Size(946, 257);
             this.dgvFuncionarios.TabIndex = 1;
+            this.dgvFuncionarios.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvFuncionarios_CellDoubleClick);
             // 
             // tabPage3
             // 

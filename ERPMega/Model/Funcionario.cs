@@ -11,8 +11,6 @@ namespace ERPMega.Model
         public int FuncaoId { get; private set; }
         public Funcao Funcao { get; set; }
         public SituacaoFuncionario SituacaoFuncionario { get; set; }
-       
-        public Funcionario() { }
 
         public Funcionario(string nome, long matricula, DateTime dataNascimento, int situacaoFuncionarioId, int funcaoId)
         {
@@ -23,10 +21,12 @@ namespace ERPMega.Model
             FuncaoId = funcaoId;
         }
 
-        public void Update(string nome, DateTime dataNascimento)
+        public void Update(string nome, DateTime dataNascimento, int situacaoFuncionarioId, int funcaoId)
         {
             Nome = nome;
             DataNascimento = dataNascimento;
+            SituacaoFuncionarioId = situacaoFuncionarioId;
+            FuncaoId = funcaoId;
             UpdateAt = DateTime.Now;
         }
 
