@@ -54,12 +54,40 @@ namespace ERPMega
             this.txtCadCodFunc = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.dgvFuncionarios = new System.Windows.Forms.DataGridView();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.tpHorarios = new System.Windows.Forms.TabPage();
+            this.btnClose = new System.Windows.Forms.Button();
+            this.btnCancel = new System.Windows.Forms.Button();
+            this.btnSave = new System.Windows.Forms.Button();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.btnPesquisar = new System.Windows.Forms.Button();
+            this.txtBuscarFuncionario = new System.Windows.Forms.Button();
+            this.label11 = new System.Windows.Forms.Label();
+            this.txtData = new System.Windows.Forms.MaskedTextBox();
+            this.txtSaida = new System.Windows.Forms.MaskedTextBox();
+            this.txtRetorno = new System.Windows.Forms.MaskedTextBox();
+            this.txtSaidaAlmoco = new System.Windows.Forms.MaskedTextBox();
+            this.txtEntrada = new System.Windows.Forms.MaskedTextBox();
+            this.Data = new System.Windows.Forms.Label();
+            this.txtId = new System.Windows.Forms.TextBox();
+            this.txtNomeHoraFunc = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.txtCodHoraFunc = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.dpDtFim = new System.Windows.Forms.DateTimePicker();
+            this.dpDtInicio = new System.Windows.Forms.DateTimePicker();
+            this.dgvHours = new System.Windows.Forms.DataGridView();
             this.tabPrincipal.SuspendLayout();
             this.tpFuncionario.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFuncao)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFuncionarios)).BeginInit();
+            this.tpHorarios.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvHours)).BeginInit();
             this.SuspendLayout();
             // 
             // tabPrincipal
@@ -69,7 +97,7 @@ namespace ERPMega
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tabPrincipal.Controls.Add(this.tabPage1);
             this.tabPrincipal.Controls.Add(this.tpFuncionario);
-            this.tabPrincipal.Controls.Add(this.tabPage3);
+            this.tabPrincipal.Controls.Add(this.tpHorarios);
             this.tabPrincipal.Location = new System.Drawing.Point(3, 12);
             this.tabPrincipal.Name = "tabPrincipal";
             this.tabPrincipal.SelectedIndex = 0;
@@ -83,7 +111,7 @@ namespace ERPMega
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage1.Size = new System.Drawing.Size(958, 458);
             this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "tabPage1";
+            this.tabPage1.Text = "Principal";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
             // tpFuncionario
@@ -348,19 +376,308 @@ namespace ERPMega
             this.dgvFuncionarios.Location = new System.Drawing.Point(6, 195);
             this.dgvFuncionarios.Name = "dgvFuncionarios";
             this.dgvFuncionarios.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvFuncionarios.Size = new System.Drawing.Size(946, 257);
+            this.dgvFuncionarios.Size = new System.Drawing.Size(946, 260);
             this.dgvFuncionarios.TabIndex = 1;
             this.dgvFuncionarios.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvFuncionarios_CellDoubleClick);
             // 
-            // tabPage3
+            // tpHorarios
             // 
-            this.tabPage3.Location = new System.Drawing.Point(4, 22);
-            this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(958, 458);
-            this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "tabPage3";
-            this.tabPage3.UseVisualStyleBackColor = true;
+            this.tpHorarios.Controls.Add(this.btnClose);
+            this.tpHorarios.Controls.Add(this.btnCancel);
+            this.tpHorarios.Controls.Add(this.btnSave);
+            this.tpHorarios.Controls.Add(this.label12);
+            this.tpHorarios.Controls.Add(this.label13);
+            this.tpHorarios.Controls.Add(this.label14);
+            this.tpHorarios.Controls.Add(this.label15);
+            this.tpHorarios.Controls.Add(this.btnPesquisar);
+            this.tpHorarios.Controls.Add(this.txtBuscarFuncionario);
+            this.tpHorarios.Controls.Add(this.label11);
+            this.tpHorarios.Controls.Add(this.txtData);
+            this.tpHorarios.Controls.Add(this.txtSaida);
+            this.tpHorarios.Controls.Add(this.txtRetorno);
+            this.tpHorarios.Controls.Add(this.txtSaidaAlmoco);
+            this.tpHorarios.Controls.Add(this.txtEntrada);
+            this.tpHorarios.Controls.Add(this.Data);
+            this.tpHorarios.Controls.Add(this.txtId);
+            this.tpHorarios.Controls.Add(this.txtNomeHoraFunc);
+            this.tpHorarios.Controls.Add(this.label9);
+            this.tpHorarios.Controls.Add(this.label10);
+            this.tpHorarios.Controls.Add(this.txtCodHoraFunc);
+            this.tpHorarios.Controls.Add(this.label7);
+            this.tpHorarios.Controls.Add(this.label8);
+            this.tpHorarios.Controls.Add(this.dpDtFim);
+            this.tpHorarios.Controls.Add(this.dpDtInicio);
+            this.tpHorarios.Controls.Add(this.dgvHours);
+            this.tpHorarios.Location = new System.Drawing.Point(4, 22);
+            this.tpHorarios.Name = "tpHorarios";
+            this.tpHorarios.Padding = new System.Windows.Forms.Padding(3);
+            this.tpHorarios.Size = new System.Drawing.Size(958, 458);
+            this.tpHorarios.TabIndex = 2;
+            this.tpHorarios.Text = "Horários";
+            this.tpHorarios.UseVisualStyleBackColor = true;
+            // 
+            // btnClose
+            // 
+            this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnClose.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClose.Location = new System.Drawing.Point(868, 166);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(75, 23);
+            this.btnClose.TabIndex = 32;
+            this.btnClose.Text = "Sair";
+            this.btnClose.UseVisualStyleBackColor = true;
+            // 
+            // btnCancel
+            // 
+            this.btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnCancel.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancel.Location = new System.Drawing.Point(787, 166);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(75, 23);
+            this.btnCancel.TabIndex = 31;
+            this.btnCancel.Text = "Cancelar";
+            this.btnCancel.UseVisualStyleBackColor = true;
+            // 
+            // btnSave
+            // 
+            this.btnSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnSave.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSave.Location = new System.Drawing.Point(706, 166);
+            this.btnSave.Name = "btnSave";
+            this.btnSave.Size = new System.Drawing.Size(75, 23);
+            this.btnSave.TabIndex = 30;
+            this.btnSave.Text = "Salvar";
+            this.btnSave.UseVisualStyleBackColor = true;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Location = new System.Drawing.Point(553, 140);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(44, 16);
+            this.label12.TabIndex = 26;
+            this.label12.Text = "Saida";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.Location = new System.Drawing.Point(447, 140);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(81, 16);
+            this.label13.TabIndex = 27;
+            this.label13.Text = "Ret. Almoço";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.Location = new System.Drawing.Point(341, 140);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(93, 16);
+            this.label14.TabIndex = 28;
+            this.label14.Text = "Saida Almoço";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.Location = new System.Drawing.Point(235, 140);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(55, 16);
+            this.label15.TabIndex = 29;
+            this.label15.Text = "Entrada";
+            // 
+            // btnPesquisar
+            // 
+            this.btnPesquisar.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPesquisar.Location = new System.Drawing.Point(493, 104);
+            this.btnPesquisar.Name = "btnPesquisar";
+            this.btnPesquisar.Size = new System.Drawing.Size(75, 23);
+            this.btnPesquisar.TabIndex = 25;
+            this.btnPesquisar.Text = "Pesquisar";
+            this.btnPesquisar.UseVisualStyleBackColor = true;
+            this.btnPesquisar.Click += new System.EventHandler(this.btnPesquisar_Click);
+            // 
+            // txtBuscarFuncionario
+            // 
+            this.txtBuscarFuncionario.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBuscarFuncionario.Location = new System.Drawing.Point(412, 104);
+            this.txtBuscarFuncionario.Name = "txtBuscarFuncionario";
+            this.txtBuscarFuncionario.Size = new System.Drawing.Size(75, 23);
+            this.txtBuscarFuncionario.TabIndex = 24;
+            this.txtBuscarFuncionario.Text = "Buscar";
+            this.txtBuscarFuncionario.UseVisualStyleBackColor = true;
+            this.txtBuscarFuncionario.Click += new System.EventHandler(this.txtBuscarFuncionario_Click);
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(6, 158);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(37, 16);
+            this.label11.TabIndex = 23;
+            this.label11.Text = "Data";
+            // 
+            // txtData
+            // 
+            this.txtData.Location = new System.Drawing.Point(120, 157);
+            this.txtData.Mask = "00/00/0000";
+            this.txtData.Name = "txtData";
+            this.txtData.Size = new System.Drawing.Size(100, 20);
+            this.txtData.TabIndex = 18;
+            this.txtData.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtData.ValidatingType = typeof(System.DateTime);
+            // 
+            // txtSaida
+            // 
+            this.txtSaida.Location = new System.Drawing.Point(553, 157);
+            this.txtSaida.Mask = "00:00";
+            this.txtSaida.Name = "txtSaida";
+            this.txtSaida.Size = new System.Drawing.Size(100, 20);
+            this.txtSaida.TabIndex = 22;
+            this.txtSaida.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtSaida.ValidatingType = typeof(System.DateTime);
+            // 
+            // txtRetorno
+            // 
+            this.txtRetorno.Location = new System.Drawing.Point(447, 157);
+            this.txtRetorno.Mask = "00:00";
+            this.txtRetorno.Name = "txtRetorno";
+            this.txtRetorno.Size = new System.Drawing.Size(100, 20);
+            this.txtRetorno.TabIndex = 21;
+            this.txtRetorno.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtRetorno.ValidatingType = typeof(System.DateTime);
+            // 
+            // txtSaidaAlmoco
+            // 
+            this.txtSaidaAlmoco.Location = new System.Drawing.Point(341, 157);
+            this.txtSaidaAlmoco.Mask = "00:00";
+            this.txtSaidaAlmoco.Name = "txtSaidaAlmoco";
+            this.txtSaidaAlmoco.Size = new System.Drawing.Size(100, 20);
+            this.txtSaidaAlmoco.TabIndex = 20;
+            this.txtSaidaAlmoco.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtSaidaAlmoco.ValidatingType = typeof(System.DateTime);
+            // 
+            // txtEntrada
+            // 
+            this.txtEntrada.Location = new System.Drawing.Point(235, 157);
+            this.txtEntrada.Mask = "00:00";
+            this.txtEntrada.Name = "txtEntrada";
+            this.txtEntrada.Size = new System.Drawing.Size(100, 20);
+            this.txtEntrada.TabIndex = 19;
+            this.txtEntrada.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtEntrada.ValidatingType = typeof(System.DateTime);
+            // 
+            // Data
+            // 
+            this.Data.AutoSize = true;
+            this.Data.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Data.Location = new System.Drawing.Point(6, 132);
+            this.Data.Name = "Data";
+            this.Data.Size = new System.Drawing.Size(19, 16);
+            this.Data.TabIndex = 17;
+            this.Data.Text = "Id";
+            // 
+            // txtId
+            // 
+            this.txtId.Location = new System.Drawing.Point(120, 131);
+            this.txtId.Name = "txtId";
+            this.txtId.ReadOnly = true;
+            this.txtId.Size = new System.Drawing.Size(100, 20);
+            this.txtId.TabIndex = 16;
+            this.txtId.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // txtNomeHoraFunc
+            // 
+            this.txtNomeHoraFunc.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNomeHoraFunc.Location = new System.Drawing.Point(120, 105);
+            this.txtNomeHoraFunc.Name = "txtNomeHoraFunc";
+            this.txtNomeHoraFunc.ReadOnly = true;
+            this.txtNomeHoraFunc.Size = new System.Drawing.Size(285, 20);
+            this.txtNomeHoraFunc.TabIndex = 15;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(6, 106);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(45, 16);
+            this.label9.TabIndex = 14;
+            this.label9.Text = "Nome";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(6, 80);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(52, 16);
+            this.label10.TabIndex = 13;
+            this.label10.Text = "Código";
+            // 
+            // txtCodHoraFunc
+            // 
+            this.txtCodHoraFunc.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCodHoraFunc.Location = new System.Drawing.Point(120, 79);
+            this.txtCodHoraFunc.Name = "txtCodHoraFunc";
+            this.txtCodHoraFunc.ReadOnly = true;
+            this.txtCodHoraFunc.Size = new System.Drawing.Size(100, 20);
+            this.txtCodHoraFunc.TabIndex = 12;
+            this.txtCodHoraFunc.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Location = new System.Drawing.Point(6, 58);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(49, 16);
+            this.label7.TabIndex = 11;
+            this.label7.Text = "Dt. Fim";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(6, 30);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(58, 16);
+            this.label8.TabIndex = 10;
+            this.label8.Text = "Dt. Inicio";
+            // 
+            // dpDtFim
+            // 
+            this.dpDtFim.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dpDtFim.Location = new System.Drawing.Point(120, 53);
+            this.dpDtFim.Name = "dpDtFim";
+            this.dpDtFim.Size = new System.Drawing.Size(100, 20);
+            this.dpDtFim.TabIndex = 9;
+            // 
+            // dpDtInicio
+            // 
+            this.dpDtInicio.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dpDtInicio.Location = new System.Drawing.Point(120, 27);
+            this.dpDtInicio.Name = "dpDtInicio";
+            this.dpDtInicio.Size = new System.Drawing.Size(100, 20);
+            this.dpDtInicio.TabIndex = 8;
+            // 
+            // dgvHours
+            // 
+            this.dgvHours.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvHours.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvHours.BackgroundColor = System.Drawing.Color.White;
+            this.dgvHours.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvHours.Location = new System.Drawing.Point(6, 195);
+            this.dgvHours.Name = "dgvHours";
+            this.dgvHours.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvHours.Size = new System.Drawing.Size(946, 257);
+            this.dgvHours.TabIndex = 1;
             // 
             // Principal
             // 
@@ -379,6 +696,9 @@ namespace ERPMega
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFuncao)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFuncionarios)).EndInit();
+            this.tpHorarios.ResumeLayout(false);
+            this.tpHorarios.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvHours)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -388,7 +708,7 @@ namespace ERPMega
         private System.Windows.Forms.TabControl tabPrincipal;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tpFuncionario;
-        private System.Windows.Forms.TabPage tabPage3;
+        private System.Windows.Forms.TabPage tpHorarios;
         private System.Windows.Forms.Label label3;
         public System.Windows.Forms.TextBox txtDescFuncao;
         private System.Windows.Forms.Label label4;
@@ -411,6 +731,32 @@ namespace ERPMega
         private System.Windows.Forms.TextBox txtCadCodFuncao;
         private System.Windows.Forms.TextBox txtCadDescFuncao;
         private System.Windows.Forms.Button btnSalvarFuncao;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Button btnPesquisar;
+        private System.Windows.Forms.Button txtBuscarFuncionario;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.MaskedTextBox txtData;
+        private System.Windows.Forms.MaskedTextBox txtSaida;
+        private System.Windows.Forms.MaskedTextBox txtRetorno;
+        private System.Windows.Forms.MaskedTextBox txtSaidaAlmoco;
+        private System.Windows.Forms.MaskedTextBox txtEntrada;
+        private System.Windows.Forms.Label Data;
+        private System.Windows.Forms.TextBox txtId;
+        private System.Windows.Forms.TextBox txtNomeHoraFunc;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.TextBox txtCodHoraFunc;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.DateTimePicker dpDtFim;
+        private System.Windows.Forms.DateTimePicker dpDtInicio;
+        private System.Windows.Forms.DataGridView dgvHours;
+        private System.Windows.Forms.Button btnClose;
+        private System.Windows.Forms.Button btnCancel;
+        private System.Windows.Forms.Button btnSave;
     }
 }
 

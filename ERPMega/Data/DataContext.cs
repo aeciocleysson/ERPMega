@@ -11,6 +11,7 @@ namespace ERPMega.Data
         public DbSet<Funcionario> Funcionario { get; set; }
         public DbSet<Funcao> Funcao { get; set; }
         public DbSet<SituacaoFuncionario> SituacaoFuncionario { get; set; }
+        public DbSet<Ponto> Ponto { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
