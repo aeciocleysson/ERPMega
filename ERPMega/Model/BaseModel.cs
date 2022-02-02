@@ -8,7 +8,7 @@ namespace ERPMega.Model
         [Key]
         public int Id { get; private set; }
 
-        public DateTime Inserted { get; private set; }
+        public DateTime Inserted { get;  set; }
 
         public DateTime? UpdateAt { get; set; }
         public bool IsDelete { get; set; }

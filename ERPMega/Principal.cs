@@ -63,6 +63,10 @@ namespace ERPMega
             dgvFuncao.DataSource = _context.Funcao.Select(s => new { s.Id, s.Descricao }).OrderBy(o => o.Descricao).ToList();
         }
 
+
+        #region Funcionário
+
+
         private void GetAllFuncionario()
         {
             dgvFuncionarios.DataSource = _context.Funcionario.Where(w => w.IsDelete == false)
@@ -163,6 +167,90 @@ namespace ERPMega
                 MessageBox.Show("Selecione um funcionário!", "Alerta", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
+        #endregion
+
+        #region Correção de horários
+
+        private void InsertOrUpdatePonto(PontoViewModel viewModel)
+        {
+            var model = new Ponto();
+            var logViewModel = new LogViewModel();
+
+            if (rbInserirHorario.Checked)
+            {
+                if (!string.IsNullOrEmpty(txtCodHoraFunc.Text))
+                {
+                    if (!txtData.Text.Equals("  /  /") && !txtEntrada.Text.Equals(":") && !txtSaidaAlmoco.Text.Equals(":") &&
+                    !txtRetorno.Text.Equals(":") && !txtSaida.Text.Equals(":"))
+                    {
+                        var funcionario = _context.Funcionario.Find(Convert.ToInt32(txtCodHoraFunc.Text));
+
+                        viewModel.Inserted = Convert.ToDateTime(txtData.Text);
+                        viewModel.Entrada = TimeSpan.Parse(txtEntrada.Text);
+                        viewModel.SaidaIntervalo = TimeSpan.Parse(txtSaidaAlmoco.Text);
+                        viewModel.RetornoIntervalo = TimeSpan.Parse(txtRetorno.Text);
+                        viewModel.TotalIntervalo = (viewModel.RetornoIntervalo - viewModel.SaidaIntervalo);
+                        viewModel.Saida = TimeSpan.Parse(txtSaida.Text);
+                        viewModel.TotalTrabalhado = (viewModel.Saida - viewModel.Entrada - viewModel.TotalIntervalo);
+                        viewModel.Minutos = viewModel.TotalTrabalhado.TotalMinutes;
+                        viewModel.FuncionarioId = funcionario.Id;
+                        viewModel.Matricula = funcionario.Matricula;
+
+                        if (cbMotivos.Text == "Trabalhado")
+                            viewModel.Log = (int)LogPonto.ELog.Trabalhado;
+                        else if (cbMotivos.Text == "Atestado médico")
+                            viewModel.Log = (int)LogPonto.ELog.Atestado;
+
+                        logViewModel.Log = (int)LogPonto.ELog.PontoManual;
+                        logViewModel.Descricao = "Ponto Inserido manualmente";
+                        logViewModel.Log = viewModel.Log;
+                        logViewModel.Descricao = cbMotivos.Text;
+                        logViewModel.FuncionarioId = funcionario.Id;
+
+                        model.InsertUpdateHours(inserted: viewModel.Inserted,
+                            entrada: viewModel.Entrada,
+                            saidaIntervalo: viewModel.SaidaIntervalo,
+                            retornoIntervalo: viewModel.RetornoIntervalo,
+                            totalIntervalo: viewModel.TotalIntervalo,
+                            saida: viewModel.Saida,
+                            totalTrabalhado: viewModel.TotalTrabalhado,
+                            minutos: viewModel.Minutos,
+                            funcionarioId: viewModel.FuncionarioId,
+                            matricula: viewModel.Matricula,
+                            log: viewModel.Log);
+
+                        var logModel = new LogPonto(log: logViewModel.Log, descricao: logViewModel.Descricao, logViewModel.FuncionarioId);
+
+                        _context.Add(model);
+                        _context.SaveChanges();
+
+                        _context.Add(logModel);
+                        _context.SaveChanges();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Preencha os campos obrigátorios.", "Alerta", MessageBoxButtons.OK,
+                        MessageBoxIcon.Error);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Selecione um funcionário.", "Alerta", MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+                }
+            }
+            else if (rbCorrigirHorario.Checked)
+            {
+
+            }
+            else
+            {
+                MessageBox.Show("Escolha uma ação: Inserir Horário ou Corrigir Horário.", "Alerta", MessageBoxButtons.OK,
+                MessageBoxIcon.Error);
+            }
+        }
+
+        #endregion
 
         private void btnSalvarFuncao_Click(object sender, EventArgs e)
         {
@@ -248,7 +336,9 @@ namespace ERPMega
                           Entrada = s.Entrada,
                           Almoco = s.SaidaIntervalo,
                           Retorno = s.RetornoIntervalo,
-                          Saida = s.Saida
+                          TotalIntervalo = s.TotalIntervalo,
+                          Saida = s.Saida,
+                          Total = s.TotalTrabalhado
                       })
                       .OrderBy(o => o.Data)
                       .ToList();
@@ -271,9 +361,15 @@ namespace ERPMega
         private void btnPesquisar_Click(object sender, EventArgs e)
         {
             if (!string.IsNullOrWhiteSpace(txtCodHoraFunc.Text))
-            GetByIdHorario(Convert.ToInt32(txtCodHoraFunc.Text), Convert.ToDateTime(dpDtInicio.Text), Convert.ToDateTime(dpDtFim.Text));
+                GetByIdHorario(Convert.ToInt32(txtCodHoraFunc.Text), Convert.ToDateTime(dpDtInicio.Text), Convert.ToDateTime(dpDtFim.Text));
             else
                 return;
+        }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            var viewModel = new PontoViewModel();
+            InsertOrUpdatePonto(viewModel);
         }
     }
 }

@@ -55,6 +55,8 @@ namespace ERPMega
             this.label2 = new System.Windows.Forms.Label();
             this.dgvFuncionarios = new System.Windows.Forms.DataGridView();
             this.tpHorarios = new System.Windows.Forms.TabPage();
+            this.rbCorrigirHorario = new System.Windows.Forms.RadioButton();
+            this.rbInserirHorario = new System.Windows.Forms.RadioButton();
             this.btnClose = new System.Windows.Forms.Button();
             this.btnCancel = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
@@ -81,6 +83,8 @@ namespace ERPMega
             this.dpDtFim = new System.Windows.Forms.DateTimePicker();
             this.dpDtInicio = new System.Windows.Forms.DateTimePicker();
             this.dgvHours = new System.Windows.Forms.DataGridView();
+            this.cbMotivos = new System.Windows.Forms.ComboBox();
+            this.label16 = new System.Windows.Forms.Label();
             this.tabPrincipal.SuspendLayout();
             this.tpFuncionario.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -382,6 +386,10 @@ namespace ERPMega
             // 
             // tpHorarios
             // 
+            this.tpHorarios.Controls.Add(this.label16);
+            this.tpHorarios.Controls.Add(this.cbMotivos);
+            this.tpHorarios.Controls.Add(this.rbCorrigirHorario);
+            this.tpHorarios.Controls.Add(this.rbInserirHorario);
             this.tpHorarios.Controls.Add(this.btnClose);
             this.tpHorarios.Controls.Add(this.btnCancel);
             this.tpHorarios.Controls.Add(this.btnSave);
@@ -416,6 +424,28 @@ namespace ERPMega
             this.tpHorarios.Text = "Horários";
             this.tpHorarios.UseVisualStyleBackColor = true;
             // 
+            // rbCorrigirHorario
+            // 
+            this.rbCorrigirHorario.AutoSize = true;
+            this.rbCorrigirHorario.Location = new System.Drawing.Point(284, 52);
+            this.rbCorrigirHorario.Name = "rbCorrigirHorario";
+            this.rbCorrigirHorario.Size = new System.Drawing.Size(94, 17);
+            this.rbCorrigirHorario.TabIndex = 34;
+            this.rbCorrigirHorario.TabStop = true;
+            this.rbCorrigirHorario.Text = "Corrigir Horário";
+            this.rbCorrigirHorario.UseVisualStyleBackColor = true;
+            // 
+            // rbInserirHorario
+            // 
+            this.rbInserirHorario.AutoSize = true;
+            this.rbInserirHorario.Location = new System.Drawing.Point(284, 30);
+            this.rbInserirHorario.Name = "rbInserirHorario";
+            this.rbInserirHorario.Size = new System.Drawing.Size(90, 17);
+            this.rbInserirHorario.TabIndex = 33;
+            this.rbInserirHorario.TabStop = true;
+            this.rbInserirHorario.Text = "Inserir Horário";
+            this.rbInserirHorario.UseVisualStyleBackColor = true;
+            // 
             // btnClose
             // 
             this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -448,6 +478,7 @@ namespace ERPMega
             this.btnSave.TabIndex = 30;
             this.btnSave.Text = "Salvar";
             this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // label12
             // 
@@ -679,6 +710,28 @@ namespace ERPMega
             this.dgvHours.Size = new System.Drawing.Size(946, 257);
             this.dgvHours.TabIndex = 1;
             // 
+            // cbMotivos
+            // 
+            this.cbMotivos.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbMotivos.FormattingEnabled = true;
+            this.cbMotivos.Items.AddRange(new object[] {
+            "Atestado médico",
+            "Trabalhado"});
+            this.cbMotivos.Location = new System.Drawing.Point(284, 79);
+            this.cbMotivos.Name = "cbMotivos";
+            this.cbMotivos.Size = new System.Drawing.Size(121, 21);
+            this.cbMotivos.TabIndex = 35;
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.Location = new System.Drawing.Point(230, 80);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(48, 16);
+            this.label16.TabIndex = 36;
+            this.label16.Text = "Motivo";
+            // 
             // Principal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -757,6 +810,10 @@ namespace ERPMega
         private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Button btnSave;
+        private System.Windows.Forms.RadioButton rbCorrigirHorario;
+        private System.Windows.Forms.RadioButton rbInserirHorario;
+        private System.Windows.Forms.ComboBox cbMotivos;
+        private System.Windows.Forms.Label label16;
     }
 }
 
