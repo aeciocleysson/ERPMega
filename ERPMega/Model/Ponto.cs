@@ -17,8 +17,8 @@ namespace ERPMega.Model
         public virtual Funcionario Funcionario { get; private set; }
 
         public Ponto() { }
-            
-        public void InsertUpdateHours(DateTime inserted, TimeSpan entrada, TimeSpan saidaIntervalo, TimeSpan retornoIntervalo, TimeSpan totalIntervalo,
+
+        public void InsertHours(DateTime inserted, TimeSpan entrada, TimeSpan saidaIntervalo, TimeSpan retornoIntervalo, TimeSpan totalIntervalo,
                                 TimeSpan saida, TimeSpan totalTrabalhado, double minutos, int funcionarioId, long matricula, int log)
         {
             Inserted = inserted;
@@ -32,6 +32,20 @@ namespace ERPMega.Model
             FuncionarioId = funcionarioId;
             Matricula = matricula;
             Log = log;
+        }
+
+        public void UpdateHours(TimeSpan entrada, TimeSpan saidaIntervalo, TimeSpan retornoIntervalo, TimeSpan totalIntervalo,
+                              TimeSpan saida, TimeSpan totalTrabalhado, double minutos, int log)
+        {
+            Entrada = entrada;
+            SaidaIntervalo = saidaIntervalo;
+            RetornoIntervalo = retornoIntervalo;
+            TotalIntervalo = totalIntervalo;
+            Saida = saida;
+            TotalTrabalhado = totalTrabalhado;
+            Minutos = minutos;
+            Log = log;
+            UpdateAt = DateTime.Now;
         }
     }
 }

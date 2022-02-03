@@ -21,8 +21,10 @@ namespace ERPMega
             GetAllSituacao();
             GetAllFuncionario();
             ClearFuncionario();
+            dpDtInicio.Text =  DateTime.Today.AddDays(-30).ToString();
         }
 
+        #region Funcionário
         private void ClearFuncionario()
         {
             txtCadCodFunc.Clear();
@@ -58,14 +60,24 @@ namespace ERPMega
             }
         }
 
+        public void SelectFuncionarios()
+        {
+            var funcionarios = new FrmFuncionarios();
+            funcionarios.ShowDialog();
+
+            if (funcionarios.DialogResult == DialogResult.OK)
+            {
+                var dataGrid = funcionarios.dgvEmployees.Rows[funcionarios.dgvEmployees.CurrentRow.Index];
+
+                txtCodHoraFunc.Text = dataGrid.Cells[0].Value.ToString();
+                txtNomeHoraFunc.Text = dataGrid.Cells[1].Value.ToString();
+            }
+        }
+
         private void GetAllFuncao()
         {
             dgvFuncao.DataSource = _context.Funcao.Select(s => new { s.Id, s.Descricao }).OrderBy(o => o.Descricao).ToList();
         }
-
-
-        #region Funcionário
-
 
         private void GetAllFuncionario()
         {
@@ -171,17 +183,69 @@ namespace ERPMega
 
         #region Correção de horários
 
+        public void GetByIdHorario(int id, DateTime dtInicio, DateTime dtFim)
+        {
+            if (!string.IsNullOrEmpty(txtCodHoraFunc.Text))
+            {
+                id = Convert.ToInt32(txtCodHoraFunc.Text);
+                dtInicio = Convert.ToDateTime(dpDtInicio.Value.ToString("dd/MM/yyyy"));
+                dtFim = Convert.ToDateTime(dpDtFim.Value.ToString("dd/MM/yyyy"));
+
+                var employee = _context.Ponto
+                      .Where(w => w.FuncionarioId == id &&
+                             w.Inserted >= dtInicio &&
+                             w.Inserted <= dtFim)
+                      .Select(s => new
+                      {
+                          Codigo = s.Id,
+                          Data = s.Inserted,
+                          Dia = s.Inserted.ToString("dddd", new CultureInfo("pt-BR")),
+                          Entrada = s.Entrada,
+                          Almoço = s.SaidaIntervalo,
+                          RetornoAlmoço = s.RetornoIntervalo,
+                          TotalIntervalo = s.TotalIntervalo,
+                          Saida = s.Saida,
+                          Total = s.TotalTrabalhado
+                      })
+                      .OrderBy(o => o.Data)
+                      .ToList();
+
+                dgvHours.DataSource = employee;
+            }
+            else
+            {
+                MessageBox.Show("Selecione um Funcionário.", "Alerta", MessageBoxButtons.OK,
+                MessageBoxIcon.Error);
+            }
+        }
+
+        private void CleanFields()
+        {
+            //txtCodHoraFunc.Clear();
+            //txtNomeHoraFunc.Clear();
+            //txtNomeHoraFunc.Focus();
+            //txtNomeHoraFunc.Select();
+            txtId.Clear();
+            txtData.Clear();
+            txtEntrada.Clear();
+            txtSaidaAlmoco.Clear();
+            txtRetorno.Clear();
+            txtSaida.Clear();
+            dgvHours.DataSource = null;
+        }
+
+
         private void InsertOrUpdatePonto(PontoViewModel viewModel)
         {
             var model = new Ponto();
             var logViewModel = new LogViewModel();
 
-            if (rbInserirHorario.Checked)
+            if (rbInserirHorario.Checked && string.IsNullOrEmpty(txtId.Text))
             {
                 if (!string.IsNullOrEmpty(txtCodHoraFunc.Text))
                 {
                     if (!txtData.Text.Equals("  /  /") && !txtEntrada.Text.Equals(":") && !txtSaidaAlmoco.Text.Equals(":") &&
-                    !txtRetorno.Text.Equals(":") && !txtSaida.Text.Equals(":"))
+                    !txtRetorno.Text.Equals(":") && !txtSaida.Text.Equals(":") && !string.IsNullOrEmpty(cbMotivos.Text))
                     {
                         var funcionario = _context.Funcionario.Find(Convert.ToInt32(txtCodHoraFunc.Text));
 
@@ -197,17 +261,21 @@ namespace ERPMega
                         viewModel.Matricula = funcionario.Matricula;
 
                         if (cbMotivos.Text == "Trabalhado")
-                            viewModel.Log = (int)LogPonto.ELog.Trabalhado;
+                        {
+                            viewModel.Log = (int)LogPonto.ELog.PontoManual;
+                            viewModel.DescricaoLog = "Trabalhado/Lançamento manual";
+                        }
                         else if (cbMotivos.Text == "Atestado médico")
+                        {
                             viewModel.Log = (int)LogPonto.ELog.Atestado;
+                            viewModel.DescricaoLog = "Atestado";
+                        }
 
-                        logViewModel.Log = (int)LogPonto.ELog.PontoManual;
-                        logViewModel.Descricao = "Ponto Inserido manualmente";
                         logViewModel.Log = viewModel.Log;
-                        logViewModel.Descricao = cbMotivos.Text;
+                        logViewModel.Descricao = viewModel.DescricaoLog;
                         logViewModel.FuncionarioId = funcionario.Id;
 
-                        model.InsertUpdateHours(inserted: viewModel.Inserted,
+                        model.InsertHours(inserted: viewModel.Inserted,
                             entrada: viewModel.Entrada,
                             saidaIntervalo: viewModel.SaidaIntervalo,
                             retornoIntervalo: viewModel.RetornoIntervalo,
@@ -226,6 +294,9 @@ namespace ERPMega
 
                         _context.Add(logModel);
                         _context.SaveChanges();
+
+                        CleanFields();
+                        GetByIdHorario(Convert.ToInt32(txtCodHoraFunc.Text), Convert.ToDateTime(dpDtInicio.Text), Convert.ToDateTime(dpDtFim.Text));
                     }
                     else
                     {
@@ -239,9 +310,71 @@ namespace ERPMega
                     MessageBoxIcon.Error);
                 }
             }
-            else if (rbCorrigirHorario.Checked)
+            else if (rbCorrigirHorario.Checked && !string.IsNullOrEmpty(txtId.Text))
             {
+                if (!string.IsNullOrEmpty(txtId.Text))
+                {
+                    if (!txtData.Text.Equals("  /  /") && !txtEntrada.Text.Equals(":") && !txtSaidaAlmoco.Text.Equals(":") &&
+                        !txtRetorno.Text.Equals(":") && !txtSaida.Text.Equals(":") && !string.IsNullOrEmpty(cbMotivos.Text))
+                    {
 
+                        var updatePonto = _context.Ponto.Find(Convert.ToInt32(txtId.Text));
+
+                        viewModel.Entrada = TimeSpan.Parse(txtEntrada.Text);
+                        viewModel.SaidaIntervalo = TimeSpan.Parse(txtSaidaAlmoco.Text);
+                        viewModel.RetornoIntervalo = TimeSpan.Parse(txtRetorno.Text);
+                        viewModel.TotalIntervalo = (viewModel.RetornoIntervalo - viewModel.SaidaIntervalo);
+                        viewModel.Saida = TimeSpan.Parse(txtSaida.Text);
+                        viewModel.TotalTrabalhado = (viewModel.Saida - viewModel.Entrada - viewModel.TotalIntervalo);
+                        viewModel.Minutos = viewModel.TotalTrabalhado.TotalMinutes;
+                        viewModel.FuncionarioId = Convert.ToInt32(txtCodHoraFunc.Text);
+
+                        if (cbMotivos.Text == "Trabalhado")
+                        {
+                            viewModel.Log = (int)LogPonto.ELog.PontoManual;
+                            viewModel.DescricaoLog = "Trabalhado/Lançamento manual";
+                        }
+                        else if (cbMotivos.Text == "Atestado médico")
+                        {
+                            viewModel.Log = (int)LogPonto.ELog.Atestado;
+                            viewModel.DescricaoLog = "Atestado";
+                        }
+
+                        logViewModel.Log = viewModel.Log;
+                        logViewModel.Descricao = viewModel.DescricaoLog;
+                        logViewModel.FuncionarioId = viewModel.FuncionarioId;
+
+                        var logModel = new LogPonto(log: logViewModel.Log, descricao: logViewModel.Descricao, logViewModel.FuncionarioId);
+
+                        updatePonto.UpdateHours(entrada: viewModel.Entrada,
+                            saidaIntervalo: viewModel.SaidaIntervalo,
+                            retornoIntervalo: viewModel.RetornoIntervalo,
+                            totalIntervalo: viewModel.TotalIntervalo,
+                            saida: viewModel.Saida,
+                            totalTrabalhado: viewModel.TotalTrabalhado,
+                            minutos: viewModel.Minutos,
+                            log: viewModel.Log);
+
+                        _context.Ponto.Update(updatePonto);
+                        _context.SaveChanges();
+
+                        _context.Add(logModel);
+                        _context.SaveChanges();
+
+                        CleanFields();
+                        GetByIdHorario(Convert.ToInt32(txtCodHoraFunc.Text), Convert.ToDateTime(dpDtInicio.Text), Convert.ToDateTime(dpDtFim.Text));
+                    }
+                    else
+                    {
+                        MessageBox.Show("Preencha os campos obrigátorios.", "Alerta", MessageBoxButtons.OK,
+                      MessageBoxIcon.Error);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Selecione um funcionário.", "Alerta", MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+                }
             }
             else
             {
@@ -302,60 +435,14 @@ namespace ERPMega
             DeleteFuncionario(viewModel);
         }
 
-        public void SelectFuncionarios()
-        {
-            var funcionarios = new FrmFuncionarios();
-            funcionarios.ShowDialog();
-
-            if (funcionarios.DialogResult == DialogResult.OK)
-            {
-                var dataGrid = funcionarios.dgvEmployees.Rows[funcionarios.dgvEmployees.CurrentRow.Index];
-
-                txtCodHoraFunc.Text = dataGrid.Cells[0].Value.ToString();
-                txtNomeHoraFunc.Text = dataGrid.Cells[1].Value.ToString();
-            }
-        }
-
-        public void GetByIdHorario(int id, DateTime dtInicio, DateTime dtFim)
-        {
-            if (!string.IsNullOrEmpty(txtCodHoraFunc.Text))
-            {
-                id = Convert.ToInt32(txtCodHoraFunc.Text);
-                dtInicio = Convert.ToDateTime(dpDtInicio.Value.ToString("dd/MM/yyyy"));
-                dtFim = Convert.ToDateTime(dpDtFim.Value.ToString("dd/MM/yyyy"));
-
-                var employee = _context.Ponto
-                      .Where(w => w.FuncionarioId == id &&
-                             w.Inserted >= dtInicio &&
-                             w.Inserted <= dtFim)
-                      .Select(s => new
-                      {
-                          Codigo = s.Id,
-                          Data = s.Inserted,
-                          Dia = s.Inserted.ToString("dddd", new CultureInfo("pt-BR")),
-                          Entrada = s.Entrada,
-                          Almoco = s.SaidaIntervalo,
-                          Retorno = s.RetornoIntervalo,
-                          TotalIntervalo = s.TotalIntervalo,
-                          Saida = s.Saida,
-                          Total = s.TotalTrabalhado
-                      })
-                      .OrderBy(o => o.Data)
-                      .ToList();
-
-                dgvHours.DataSource = employee;
-            }
-            else
-            {
-                MessageBox.Show("Selecione um Funcionário.", "Alerta", MessageBoxButtons.OK,
-                MessageBoxIcon.Error);
-            }
-        }
         private void txtBuscarFuncionario_Click(object sender, EventArgs e)
         {
             SelectFuncionarios();
 
-            GetByIdHorario(Convert.ToInt32(txtCodHoraFunc.Text), Convert.ToDateTime(dpDtInicio.Text), Convert.ToDateTime(dpDtFim.Text));
+            if (!string.IsNullOrEmpty(txtCodHoraFunc.Text))
+                GetByIdHorario(Convert.ToInt32(txtCodHoraFunc.Text), Convert.ToDateTime(dpDtInicio.Text), Convert.ToDateTime(dpDtFim.Text));
+            else
+                return;
         }
 
         private void btnPesquisar_Click(object sender, EventArgs e)
@@ -370,6 +457,21 @@ namespace ERPMega
         {
             var viewModel = new PontoViewModel();
             InsertOrUpdatePonto(viewModel);
+        }
+
+        private void dgvHours_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                var row = dgvHours.Rows[e.RowIndex];
+
+                txtId.Text = row.Cells["Codigo"].Value.ToString();
+                txtData.Text = row.Cells["Data"].Value.ToString();
+                txtEntrada.Text = row.Cells["Entrada"].Value.ToString();
+                txtSaidaAlmoco.Text = row.Cells["Almoço"].Value.ToString();
+                txtRetorno.Text = row.Cells["RetornoAlmoço"].Value.ToString();
+                txtSaida.Text = row.Cells["Saida"].Value.ToString();
+            }
         }
     }
 }

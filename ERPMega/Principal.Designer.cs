@@ -55,6 +55,8 @@ namespace ERPMega
             this.label2 = new System.Windows.Forms.Label();
             this.dgvFuncionarios = new System.Windows.Forms.DataGridView();
             this.tpHorarios = new System.Windows.Forms.TabPage();
+            this.label16 = new System.Windows.Forms.Label();
+            this.cbMotivos = new System.Windows.Forms.ComboBox();
             this.rbCorrigirHorario = new System.Windows.Forms.RadioButton();
             this.rbInserirHorario = new System.Windows.Forms.RadioButton();
             this.btnClose = new System.Windows.Forms.Button();
@@ -83,8 +85,6 @@ namespace ERPMega
             this.dpDtFim = new System.Windows.Forms.DateTimePicker();
             this.dpDtInicio = new System.Windows.Forms.DateTimePicker();
             this.dgvHours = new System.Windows.Forms.DataGridView();
-            this.cbMotivos = new System.Windows.Forms.ComboBox();
-            this.label16 = new System.Windows.Forms.Label();
             this.tabPrincipal.SuspendLayout();
             this.tpFuncionario.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -424,6 +424,28 @@ namespace ERPMega
             this.tpHorarios.Text = "Horários";
             this.tpHorarios.UseVisualStyleBackColor = true;
             // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.Location = new System.Drawing.Point(230, 80);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(48, 16);
+            this.label16.TabIndex = 36;
+            this.label16.Text = "Motivo";
+            // 
+            // cbMotivos
+            // 
+            this.cbMotivos.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbMotivos.FormattingEnabled = true;
+            this.cbMotivos.Items.AddRange(new object[] {
+            "Atestado médico",
+            "Trabalhado"});
+            this.cbMotivos.Location = new System.Drawing.Point(284, 79);
+            this.cbMotivos.Name = "cbMotivos";
+            this.cbMotivos.Size = new System.Drawing.Size(121, 21);
+            this.cbMotivos.TabIndex = 35;
+            // 
             // rbCorrigirHorario
             // 
             this.rbCorrigirHorario.AutoSize = true;
@@ -709,28 +731,7 @@ namespace ERPMega
             this.dgvHours.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvHours.Size = new System.Drawing.Size(946, 257);
             this.dgvHours.TabIndex = 1;
-            // 
-            // cbMotivos
-            // 
-            this.cbMotivos.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbMotivos.FormattingEnabled = true;
-            this.cbMotivos.Items.AddRange(new object[] {
-            "Atestado médico",
-            "Trabalhado"});
-            this.cbMotivos.Location = new System.Drawing.Point(284, 79);
-            this.cbMotivos.Name = "cbMotivos";
-            this.cbMotivos.Size = new System.Drawing.Size(121, 21);
-            this.cbMotivos.TabIndex = 35;
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.Location = new System.Drawing.Point(230, 80);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(48, 16);
-            this.label16.TabIndex = 36;
-            this.label16.Text = "Motivo";
+            this.dgvHours.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvHours_CellDoubleClick);
             // 
             // Principal
             // 

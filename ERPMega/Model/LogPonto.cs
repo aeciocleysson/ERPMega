@@ -18,7 +18,7 @@ namespace ERPMega.Model
             [Description("Finalizou os trabalhos")]
             FinalizouTrabalho = 4,
 
-            [Description("Ponto Inserido manualmente")]
+            [Description("Trabalhado/Lançamento manual")]
             PontoManual = 5,
 
             [Description("Trabalhado")]
