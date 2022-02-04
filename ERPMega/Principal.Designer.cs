@@ -29,6 +29,7 @@ namespace ERPMega
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tabPrincipal = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tpFuncionario = new System.Windows.Forms.TabPage();
@@ -85,6 +86,27 @@ namespace ERPMega
             this.dpDtFim = new System.Windows.Forms.DateTimePicker();
             this.dpDtInicio = new System.Windows.Forms.DateTimePicker();
             this.dgvHours = new System.Windows.Forms.DataGridView();
+            this.tpFechamentoMensal = new System.Windows.Forms.TabPage();
+            this.dgvFechamentoPonto = new System.Windows.Forms.DataGridView();
+            this.label17 = new System.Windows.Forms.Label();
+            this.dtInicioFechamento = new System.Windows.Forms.DateTimePicker();
+            this.label18 = new System.Windows.Forms.Label();
+            this.dtFimFechamento = new System.Windows.Forms.DateTimePicker();
+            this.label19 = new System.Windows.Forms.Label();
+            this.txtCodFuncFechamento = new System.Windows.Forms.TextBox();
+            this.txtNomeFuncFechamento = new System.Windows.Forms.TextBox();
+            this.label20 = new System.Windows.Forms.Label();
+            this.btnPesqFuncFechamento = new System.Windows.Forms.Button();
+            this.btnFuncFechamento = new System.Windows.Forms.Button();
+            this.label21 = new System.Windows.Forms.Label();
+            this.txtSaldoMes = new System.Windows.Forms.TextBox();
+            this.txtSaldoPositivo = new System.Windows.Forms.TextBox();
+            this.label22 = new System.Windows.Forms.Label();
+            this.txtSaldoNegativo = new System.Windows.Forms.TextBox();
+            this.label23 = new System.Windows.Forms.Label();
+            this.button2 = new System.Windows.Forms.Button();
+            this.btnCancelFechamento = new System.Windows.Forms.Button();
+            this.btnPrinter = new System.Windows.Forms.Button();
             this.tabPrincipal.SuspendLayout();
             this.tpFuncionario.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -92,6 +114,8 @@ namespace ERPMega
             ((System.ComponentModel.ISupportInitialize)(this.dgvFuncionarios)).BeginInit();
             this.tpHorarios.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvHours)).BeginInit();
+            this.tpFechamentoMensal.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvFechamentoPonto)).BeginInit();
             this.SuspendLayout();
             // 
             // tabPrincipal
@@ -102,6 +126,7 @@ namespace ERPMega
             this.tabPrincipal.Controls.Add(this.tabPage1);
             this.tabPrincipal.Controls.Add(this.tpFuncionario);
             this.tabPrincipal.Controls.Add(this.tpHorarios);
+            this.tabPrincipal.Controls.Add(this.tpFechamentoMensal);
             this.tabPrincipal.Location = new System.Drawing.Point(3, 12);
             this.tabPrincipal.Name = "tabPrincipal";
             this.tabPrincipal.SelectedIndex = 0;
@@ -688,9 +713,9 @@ namespace ERPMega
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label7.Location = new System.Drawing.Point(6, 58);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(49, 16);
+            this.label7.Size = new System.Drawing.Size(62, 16);
             this.label7.TabIndex = 11;
-            this.label7.Text = "Dt. Fim";
+            this.label7.Text = "Data Fim";
             // 
             // label8
             // 
@@ -698,9 +723,9 @@ namespace ERPMega
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.Location = new System.Drawing.Point(6, 30);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(58, 16);
+            this.label8.Size = new System.Drawing.Size(71, 16);
             this.label8.TabIndex = 10;
-            this.label8.Text = "Dt. Inicio";
+            this.label8.Text = "Data Inicio";
             // 
             // dpDtFim
             // 
@@ -733,6 +758,242 @@ namespace ERPMega
             this.dgvHours.TabIndex = 1;
             this.dgvHours.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvHours_CellDoubleClick);
             // 
+            // tpFechamentoMensal
+            // 
+            this.tpFechamentoMensal.Controls.Add(this.button2);
+            this.tpFechamentoMensal.Controls.Add(this.btnCancelFechamento);
+            this.tpFechamentoMensal.Controls.Add(this.btnPrinter);
+            this.tpFechamentoMensal.Controls.Add(this.label23);
+            this.tpFechamentoMensal.Controls.Add(this.txtSaldoNegativo);
+            this.tpFechamentoMensal.Controls.Add(this.label22);
+            this.tpFechamentoMensal.Controls.Add(this.txtSaldoPositivo);
+            this.tpFechamentoMensal.Controls.Add(this.txtSaldoMes);
+            this.tpFechamentoMensal.Controls.Add(this.label21);
+            this.tpFechamentoMensal.Controls.Add(this.btnPesqFuncFechamento);
+            this.tpFechamentoMensal.Controls.Add(this.btnFuncFechamento);
+            this.tpFechamentoMensal.Controls.Add(this.label20);
+            this.tpFechamentoMensal.Controls.Add(this.txtNomeFuncFechamento);
+            this.tpFechamentoMensal.Controls.Add(this.txtCodFuncFechamento);
+            this.tpFechamentoMensal.Controls.Add(this.label19);
+            this.tpFechamentoMensal.Controls.Add(this.dtFimFechamento);
+            this.tpFechamentoMensal.Controls.Add(this.label18);
+            this.tpFechamentoMensal.Controls.Add(this.dtInicioFechamento);
+            this.tpFechamentoMensal.Controls.Add(this.label17);
+            this.tpFechamentoMensal.Controls.Add(this.dgvFechamentoPonto);
+            this.tpFechamentoMensal.Location = new System.Drawing.Point(4, 22);
+            this.tpFechamentoMensal.Name = "tpFechamentoMensal";
+            this.tpFechamentoMensal.Padding = new System.Windows.Forms.Padding(3);
+            this.tpFechamentoMensal.Size = new System.Drawing.Size(958, 458);
+            this.tpFechamentoMensal.TabIndex = 3;
+            this.tpFechamentoMensal.Text = "Fechamento Mensal";
+            this.tpFechamentoMensal.UseVisualStyleBackColor = true;
+            // 
+            // dgvFechamentoPonto
+            // 
+            this.dgvFechamentoPonto.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvFechamentoPonto.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvFechamentoPonto.BackgroundColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.ControlLightLight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvFechamentoPonto.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            this.dgvFechamentoPonto.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvFechamentoPonto.Location = new System.Drawing.Point(6, 195);
+            this.dgvFechamentoPonto.Name = "dgvFechamentoPonto";
+            this.dgvFechamentoPonto.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvFechamentoPonto.Size = new System.Drawing.Size(946, 257);
+            this.dgvFechamentoPonto.TabIndex = 1;
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label17.Location = new System.Drawing.Point(6, 30);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(69, 16);
+            this.label17.TabIndex = 3;
+            this.label17.Text = "Data Inicio";
+            // 
+            // dtInicioFechamento
+            // 
+            this.dtInicioFechamento.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtInicioFechamento.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtInicioFechamento.Location = new System.Drawing.Point(120, 27);
+            this.dtInicioFechamento.Name = "dtInicioFechamento";
+            this.dtInicioFechamento.Size = new System.Drawing.Size(115, 20);
+            this.dtInicioFechamento.TabIndex = 4;
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label18.Location = new System.Drawing.Point(6, 56);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(61, 16);
+            this.label18.TabIndex = 5;
+            this.label18.Text = "Data Fim";
+            // 
+            // dtFimFechamento
+            // 
+            this.dtFimFechamento.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtFimFechamento.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtFimFechamento.Location = new System.Drawing.Point(120, 53);
+            this.dtFimFechamento.Name = "dtFimFechamento";
+            this.dtFimFechamento.Size = new System.Drawing.Size(115, 20);
+            this.dtFimFechamento.TabIndex = 6;
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label19.Location = new System.Drawing.Point(6, 80);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(48, 16);
+            this.label19.TabIndex = 7;
+            this.label19.Text = "Código";
+            // 
+            // txtCodFuncFechamento
+            // 
+            this.txtCodFuncFechamento.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCodFuncFechamento.Location = new System.Drawing.Point(120, 79);
+            this.txtCodFuncFechamento.Name = "txtCodFuncFechamento";
+            this.txtCodFuncFechamento.ReadOnly = true;
+            this.txtCodFuncFechamento.Size = new System.Drawing.Size(100, 20);
+            this.txtCodFuncFechamento.TabIndex = 8;
+            this.txtCodFuncFechamento.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // txtNomeFuncFechamento
+            // 
+            this.txtNomeFuncFechamento.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNomeFuncFechamento.Location = new System.Drawing.Point(120, 105);
+            this.txtNomeFuncFechamento.Name = "txtNomeFuncFechamento";
+            this.txtNomeFuncFechamento.ReadOnly = true;
+            this.txtNomeFuncFechamento.Size = new System.Drawing.Size(285, 20);
+            this.txtNomeFuncFechamento.TabIndex = 9;
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label20.Location = new System.Drawing.Point(6, 106);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(75, 16);
+            this.label20.TabIndex = 10;
+            this.label20.Text = "Funcionário";
+            // 
+            // btnPesqFuncFechamento
+            // 
+            this.btnPesqFuncFechamento.Location = new System.Drawing.Point(492, 102);
+            this.btnPesqFuncFechamento.Name = "btnPesqFuncFechamento";
+            this.btnPesqFuncFechamento.Size = new System.Drawing.Size(75, 23);
+            this.btnPesqFuncFechamento.TabIndex = 12;
+            this.btnPesqFuncFechamento.Text = "Pesquisar";
+            this.btnPesqFuncFechamento.UseVisualStyleBackColor = true;
+            // 
+            // btnFuncFechamento
+            // 
+            this.btnFuncFechamento.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFuncFechamento.Location = new System.Drawing.Point(411, 102);
+            this.btnFuncFechamento.Name = "btnFuncFechamento";
+            this.btnFuncFechamento.Size = new System.Drawing.Size(75, 23);
+            this.btnFuncFechamento.TabIndex = 11;
+            this.btnFuncFechamento.Text = "Buscar";
+            this.btnFuncFechamento.UseVisualStyleBackColor = true;
+            this.btnFuncFechamento.Click += new System.EventHandler(this.btnFuncFechamento_Click);
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(117, 153);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(71, 13);
+            this.label21.TabIndex = 13;
+            this.label21.Text = "Saldo Mensal";
+            // 
+            // txtSaldoMes
+            // 
+            this.txtSaldoMes.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSaldoMes.Location = new System.Drawing.Point(120, 169);
+            this.txtSaldoMes.Name = "txtSaldoMes";
+            this.txtSaldoMes.ReadOnly = true;
+            this.txtSaldoMes.Size = new System.Drawing.Size(90, 20);
+            this.txtSaldoMes.TabIndex = 14;
+            this.txtSaldoMes.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // txtSaldoPositivo
+            // 
+            this.txtSaldoPositivo.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSaldoPositivo.Location = new System.Drawing.Point(216, 169);
+            this.txtSaldoPositivo.Name = "txtSaldoPositivo";
+            this.txtSaldoPositivo.ReadOnly = true;
+            this.txtSaldoPositivo.Size = new System.Drawing.Size(90, 20);
+            this.txtSaldoPositivo.TabIndex = 15;
+            this.txtSaldoPositivo.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Location = new System.Drawing.Point(213, 153);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(74, 13);
+            this.label22.TabIndex = 16;
+            this.label22.Text = "Saldo Positivo";
+            // 
+            // txtSaldoNegativo
+            // 
+            this.txtSaldoNegativo.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSaldoNegativo.Location = new System.Drawing.Point(312, 169);
+            this.txtSaldoNegativo.Name = "txtSaldoNegativo";
+            this.txtSaldoNegativo.ReadOnly = true;
+            this.txtSaldoNegativo.Size = new System.Drawing.Size(90, 20);
+            this.txtSaldoNegativo.TabIndex = 17;
+            this.txtSaldoNegativo.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Location = new System.Drawing.Point(309, 153);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(80, 13);
+            this.label23.TabIndex = 18;
+            this.label23.Text = "Saldo Negativo";
+            // 
+            // button2
+            // 
+            this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.button2.Location = new System.Drawing.Point(877, 169);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.TabIndex = 19;
+            this.button2.Text = "Sair";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // btnCancelFechamento
+            // 
+            this.btnCancelFechamento.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnCancelFechamento.Location = new System.Drawing.Point(796, 169);
+            this.btnCancelFechamento.Name = "btnCancelFechamento";
+            this.btnCancelFechamento.Size = new System.Drawing.Size(75, 23);
+            this.btnCancelFechamento.TabIndex = 20;
+            this.btnCancelFechamento.Text = "Cancelar";
+            this.btnCancelFechamento.UseVisualStyleBackColor = true;
+            // 
+            // btnPrinter
+            // 
+            this.btnPrinter.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnPrinter.Location = new System.Drawing.Point(715, 169);
+            this.btnPrinter.Name = "btnPrinter";
+            this.btnPrinter.Size = new System.Drawing.Size(75, 23);
+            this.btnPrinter.TabIndex = 21;
+            this.btnPrinter.Text = "Imprimir";
+            this.btnPrinter.UseVisualStyleBackColor = true;
+            // 
             // Principal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -753,6 +1014,9 @@ namespace ERPMega
             this.tpHorarios.ResumeLayout(false);
             this.tpHorarios.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvHours)).EndInit();
+            this.tpFechamentoMensal.ResumeLayout(false);
+            this.tpFechamentoMensal.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvFechamentoPonto)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -815,6 +1079,27 @@ namespace ERPMega
         private System.Windows.Forms.RadioButton rbInserirHorario;
         private System.Windows.Forms.ComboBox cbMotivos;
         private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.TabPage tpFechamentoMensal;
+        public System.Windows.Forms.DataGridView dgvFechamentoPonto;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnCancelFechamento;
+        private System.Windows.Forms.Button btnPrinter;
+        private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.TextBox txtSaldoNegativo;
+        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.TextBox txtSaldoPositivo;
+        public System.Windows.Forms.TextBox txtSaldoMes;
+        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.Button btnPesqFuncFechamento;
+        private System.Windows.Forms.Button btnFuncFechamento;
+        private System.Windows.Forms.Label label20;
+        public System.Windows.Forms.TextBox txtNomeFuncFechamento;
+        public System.Windows.Forms.TextBox txtCodFuncFechamento;
+        private System.Windows.Forms.Label label19;
+        public System.Windows.Forms.DateTimePicker dtFimFechamento;
+        private System.Windows.Forms.Label label18;
+        public System.Windows.Forms.DateTimePicker dtInicioFechamento;
+        private System.Windows.Forms.Label label17;
     }
 }
 

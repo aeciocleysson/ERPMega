@@ -13,6 +13,7 @@ namespace ERPMega
     public partial class Principal : Form
     {
         private DataContext _context;
+        private const double totalHorasMes = 220;
         public Principal()
         {
             InitializeComponent();
@@ -385,6 +386,85 @@ namespace ERPMega
 
         #endregion
 
+        #region Fechamento Mensal
+              
+        public void GetByIdFechamentoMensal(int id, DateTime dtInicio, DateTime dtFim)
+        {
+
+            if (!string.IsNullOrEmpty(txtCodFuncFechamento.Text))
+            {
+                id = Convert.ToInt32(txtCodFuncFechamento.Text);
+                dtInicio = Convert.ToDateTime(dpDtInicio.Value.ToString("dd/MM/yyyy"));
+                dtFim = Convert.ToDateTime(dpDtFim.Value.ToString("dd/MM/yyyy"));
+
+                var funcionario = _context.Ponto
+                      .Where(w => w.FuncionarioId == id &&
+                             w.Inserted >= dtInicio &&
+                             w.Inserted <= dtFim)
+                      .Select(s => new
+                      {
+                          Codigo = s.Id,
+                          Data = s.Inserted,
+                          Dia = s.Inserted.ToString("dddd", new CultureInfo("pt-BR")),
+                          Entrada = s.Entrada,
+                          Almoço = s.SaidaIntervalo,
+                          RetornoAlmoço = s.RetornoIntervalo,
+                          TotalIntervalo = s.TotalIntervalo,
+                          Saida = s.Saida,
+                          Total = s.TotalTrabalhado
+                      })
+                      .OrderBy(o => o.Data)
+                      .ToList();
+
+                var totalHours = _context.Ponto
+                    .Where(w => w.FuncionarioId == id &&
+                           w.Inserted >= dtInicio &&
+                           w.Inserted <= dtFim)
+                    .Sum(w => w.Minutos / 60);
+
+                dgvFechamentoPonto.DataSource = funcionario;
+
+                txtSaldoMes.Text = totalHours.ToString("#.##");
+
+                if (string.IsNullOrEmpty(txtSaldoMes.Text))
+                {
+                    txtSaldoMes.Text = "0.00";
+                    txtSaldoPositivo.Text = "0.00";
+                    txtSaldoNegativo.Text = "0.00";
+                }
+                else
+                {
+                    var total = Convert.ToDouble(txtSaldoMes.Text) - totalHorasMes;
+
+                    if (total > totalHorasMes)
+                        txtSaldoPositivo.Text = total.ToString();
+                    else
+                        txtSaldoNegativo.Text = total.ToString();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Selecione um Funcionário.", "Alerta", MessageBoxButtons.OK,
+                MessageBoxIcon.Error);
+            }
+        }
+
+        private void SelectFuncionariosFechamento()
+        {
+            var funcionarios = new FrmFuncionarios();
+            funcionarios.ShowDialog();
+
+            if (funcionarios.DialogResult == DialogResult.OK)
+            {
+                var dataGrid = funcionarios.dgvEmployees.Rows[funcionarios.dgvEmployees.CurrentRow.Index];
+
+                txtCodFuncFechamento.Text = dataGrid.Cells[0].Value.ToString();
+                txtNomeFuncFechamento.Text = dataGrid.Cells[1].Value.ToString();
+            }
+        }
+
+        #endregion
+
         private void btnSalvarFuncao_Click(object sender, EventArgs e)
         {
             var viewModel = new FuncaoViewModel();
@@ -472,6 +552,16 @@ namespace ERPMega
                 txtRetorno.Text = row.Cells["RetornoAlmoço"].Value.ToString();
                 txtSaida.Text = row.Cells["Saida"].Value.ToString();
             }
+        }
+
+        private void btnFuncFechamento_Click(object sender, EventArgs e)
+        {
+            SelectFuncionariosFechamento();
+
+            if (!string.IsNullOrEmpty(txtCodFuncFechamento.Text))
+                GetByIdFechamentoMensal(Convert.ToInt32(txtCodFuncFechamento.Text), Convert.ToDateTime(dtInicioFechamento.Text), Convert.ToDateTime(dtFimFechamento.Text));
+            else
+                return;
         }
     }
 }
