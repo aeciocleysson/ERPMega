@@ -13,7 +13,7 @@ namespace ERPMega.ViewModel
         public TimeSpan Saida { get; set; }
         public TimeSpan TotalTrabalhado { get; set; }
         public double Minutos { get;  set; }
-        public int Log { get; set; }
+        public int LogPontoId { get; set; }
         public string DescricaoLog { get; set; }
     }
 }

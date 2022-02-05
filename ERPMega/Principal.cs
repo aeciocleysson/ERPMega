@@ -222,10 +222,6 @@ namespace ERPMega
 
         private void CleanFields()
         {
-            //txtCodHoraFunc.Clear();
-            //txtNomeHoraFunc.Clear();
-            //txtNomeHoraFunc.Focus();
-            //txtNomeHoraFunc.Select();
             txtId.Clear();
             txtData.Clear();
             txtEntrada.Clear();
@@ -263,17 +259,16 @@ namespace ERPMega
 
                         if (cbMotivos.Text == "Trabalhado")
                         {
-                            viewModel.Log = (int)LogPonto.ELog.PontoManual;
+                            viewModel.LogPontoId = (int)LogPonto.ELog.PontoManual;
                             viewModel.DescricaoLog = "Trabalhado/Lançamento manual";
                         }
                         else if (cbMotivos.Text == "Atestado médico")
                         {
-                            viewModel.Log = (int)LogPonto.ELog.Atestado;
+                            viewModel.LogPontoId = (int)LogPonto.ELog.Atestado;
                             viewModel.DescricaoLog = "Atestado";
                         }
 
-                        logViewModel.Log = viewModel.Log;
-                        logViewModel.Descricao = viewModel.DescricaoLog;
+                        logViewModel.StatusLogId = viewModel.LogPontoId;
                         logViewModel.FuncionarioId = funcionario.Id;
 
                         model.InsertHours(inserted: viewModel.Inserted,
@@ -286,9 +281,9 @@ namespace ERPMega
                             minutos: viewModel.Minutos,
                             funcionarioId: viewModel.FuncionarioId,
                             matricula: viewModel.Matricula,
-                            log: viewModel.Log);
+                            logPontoId: viewModel.LogPontoId);
 
-                        var logModel = new LogPonto(log: logViewModel.Log, descricao: logViewModel.Descricao, logViewModel.FuncionarioId);
+                        var logModel = new LogPonto(statusLogId: logViewModel.StatusLogId, logViewModel.FuncionarioId);
 
                         _context.Add(model);
                         _context.SaveChanges();
@@ -332,20 +327,19 @@ namespace ERPMega
 
                         if (cbMotivos.Text == "Trabalhado")
                         {
-                            viewModel.Log = (int)LogPonto.ELog.PontoManual;
+                            viewModel.LogPontoId = (int)LogPonto.ELog.PontoManual;
                             viewModel.DescricaoLog = "Trabalhado/Lançamento manual";
                         }
                         else if (cbMotivos.Text == "Atestado médico")
                         {
-                            viewModel.Log = (int)LogPonto.ELog.Atestado;
+                            viewModel.LogPontoId = (int)LogPonto.ELog.Atestado;
                             viewModel.DescricaoLog = "Atestado";
                         }
 
-                        logViewModel.Log = viewModel.Log;
-                        logViewModel.Descricao = viewModel.DescricaoLog;
+                        logViewModel.StatusLogId = viewModel.LogPontoId;
                         logViewModel.FuncionarioId = viewModel.FuncionarioId;
 
-                        var logModel = new LogPonto(log: logViewModel.Log, descricao: logViewModel.Descricao, logViewModel.FuncionarioId);
+                        var logModel = new LogPonto(statusLogId: logViewModel.StatusLogId, logViewModel.FuncionarioId);
 
                         updatePonto.UpdateHours(entrada: viewModel.Entrada,
                             saidaIntervalo: viewModel.SaidaIntervalo,
@@ -354,7 +348,7 @@ namespace ERPMega
                             saida: viewModel.Saida,
                             totalTrabalhado: viewModel.TotalTrabalhado,
                             minutos: viewModel.Minutos,
-                            log: viewModel.Log);
+                            logPontoId: viewModel.LogPontoId);
 
                         _context.Ponto.Update(updatePonto);
                         _context.SaveChanges();
@@ -412,6 +406,8 @@ namespace ERPMega
                           TotalIntervalo = s.TotalIntervalo,
                           Saida = s.Saida,
                           Total = s.TotalTrabalhado
+                          
+                          //Log = s.LogPonto.Descricao
                       })
                       .OrderBy(o => o.Data)
                       .ToList();
