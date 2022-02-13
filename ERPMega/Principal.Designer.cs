@@ -29,7 +29,8 @@ namespace ERPMega
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Principal));
             this.tabPrincipal = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tpFuncionario = new System.Windows.Forms.TabPage();
@@ -87,26 +88,26 @@ namespace ERPMega
             this.dpDtInicio = new System.Windows.Forms.DateTimePicker();
             this.dgvHours = new System.Windows.Forms.DataGridView();
             this.tpFechamentoMensal = new System.Windows.Forms.TabPage();
-            this.dgvFechamentoPonto = new System.Windows.Forms.DataGridView();
-            this.label17 = new System.Windows.Forms.Label();
-            this.dtInicioFechamento = new System.Windows.Forms.DateTimePicker();
-            this.label18 = new System.Windows.Forms.Label();
-            this.dtFimFechamento = new System.Windows.Forms.DateTimePicker();
-            this.label19 = new System.Windows.Forms.Label();
-            this.txtCodFuncFechamento = new System.Windows.Forms.TextBox();
-            this.txtNomeFuncFechamento = new System.Windows.Forms.TextBox();
-            this.label20 = new System.Windows.Forms.Label();
-            this.btnPesqFuncFechamento = new System.Windows.Forms.Button();
-            this.btnFuncFechamento = new System.Windows.Forms.Button();
-            this.label21 = new System.Windows.Forms.Label();
-            this.txtSaldoMes = new System.Windows.Forms.TextBox();
-            this.txtSaldoPositivo = new System.Windows.Forms.TextBox();
-            this.label22 = new System.Windows.Forms.Label();
-            this.txtSaldoNegativo = new System.Windows.Forms.TextBox();
-            this.label23 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
             this.btnCancelFechamento = new System.Windows.Forms.Button();
             this.btnPrinter = new System.Windows.Forms.Button();
+            this.label23 = new System.Windows.Forms.Label();
+            this.txtSaldoNegativo = new System.Windows.Forms.TextBox();
+            this.label22 = new System.Windows.Forms.Label();
+            this.txtSaldoPositivo = new System.Windows.Forms.TextBox();
+            this.txtSaldoMes = new System.Windows.Forms.TextBox();
+            this.label21 = new System.Windows.Forms.Label();
+            this.btnPesqFuncFechamento = new System.Windows.Forms.Button();
+            this.btnFuncFechamento = new System.Windows.Forms.Button();
+            this.label20 = new System.Windows.Forms.Label();
+            this.txtNomeFuncFechamento = new System.Windows.Forms.TextBox();
+            this.txtCodFuncFechamento = new System.Windows.Forms.TextBox();
+            this.label19 = new System.Windows.Forms.Label();
+            this.dtFimFechamento = new System.Windows.Forms.DateTimePicker();
+            this.label18 = new System.Windows.Forms.Label();
+            this.dtInicioFechamento = new System.Windows.Forms.DateTimePicker();
+            this.label17 = new System.Windows.Forms.Label();
+            this.dgvFechamentoPonto = new System.Windows.Forms.DataGridView();
             this.tabPrincipal.SuspendLayout();
             this.tpFuncionario.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -207,7 +208,7 @@ namespace ERPMega
             // btnSalvarFuncao
             // 
             this.btnSalvarFuncao.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSalvarFuncao.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSalvarFuncao.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSalvarFuncao.Location = new System.Drawing.Point(297, 21);
             this.btnSalvarFuncao.Name = "btnSalvarFuncao";
             this.btnSalvarFuncao.Size = new System.Drawing.Size(75, 23);
@@ -251,7 +252,7 @@ namespace ERPMega
             // btnDeleteFunc
             // 
             this.btnDeleteFunc.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnDeleteFunc.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnDeleteFunc.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnDeleteFunc.Location = new System.Drawing.Point(787, 166);
             this.btnDeleteFunc.Name = "btnDeleteFunc";
             this.btnDeleteFunc.Size = new System.Drawing.Size(75, 23);
@@ -263,7 +264,7 @@ namespace ERPMega
             // btnSalvarFunc
             // 
             this.btnSalvarFunc.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSalvarFunc.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSalvarFunc.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSalvarFunc.Location = new System.Drawing.Point(625, 166);
             this.btnSalvarFunc.Name = "btnSalvarFunc";
             this.btnSalvarFunc.Size = new System.Drawing.Size(75, 23);
@@ -275,7 +276,7 @@ namespace ERPMega
             // brnCancelarFunc
             // 
             this.brnCancelarFunc.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.brnCancelarFunc.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.brnCancelarFunc.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.brnCancelarFunc.Location = new System.Drawing.Point(706, 166);
             this.brnCancelarFunc.Name = "brnCancelarFunc";
             this.brnCancelarFunc.Size = new System.Drawing.Size(75, 23);
@@ -287,7 +288,7 @@ namespace ERPMega
             // btnSairFunc
             // 
             this.btnSairFunc.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSairFunc.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSairFunc.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSairFunc.Location = new System.Drawing.Point(868, 166);
             this.btnSairFunc.Name = "btnSairFunc";
             this.btnSairFunc.Size = new System.Drawing.Size(75, 23);
@@ -496,7 +497,7 @@ namespace ERPMega
             // btnClose
             // 
             this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnClose.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClose.Location = new System.Drawing.Point(868, 166);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(75, 23);
@@ -507,7 +508,7 @@ namespace ERPMega
             // btnCancel
             // 
             this.btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnCancel.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCancel.Location = new System.Drawing.Point(787, 166);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(75, 23);
@@ -518,7 +519,7 @@ namespace ERPMega
             // btnSave
             // 
             this.btnSave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSave.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSave.Location = new System.Drawing.Point(706, 166);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(75, 23);
@@ -569,7 +570,7 @@ namespace ERPMega
             // 
             // btnPesquisar
             // 
-            this.btnPesquisar.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPesquisar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPesquisar.Location = new System.Drawing.Point(493, 104);
             this.btnPesquisar.Name = "btnPesquisar";
             this.btnPesquisar.Size = new System.Drawing.Size(75, 23);
@@ -580,7 +581,7 @@ namespace ERPMega
             // 
             // txtBuscarFuncionario
             // 
-            this.txtBuscarFuncionario.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBuscarFuncionario.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtBuscarFuncionario.Location = new System.Drawing.Point(412, 104);
             this.txtBuscarFuncionario.Name = "txtBuscarFuncionario";
             this.txtBuscarFuncionario.Size = new System.Drawing.Size(75, 23);
@@ -788,162 +789,47 @@ namespace ERPMega
             this.tpFechamentoMensal.Text = "Fechamento Mensal";
             this.tpFechamentoMensal.UseVisualStyleBackColor = true;
             // 
-            // dgvFechamentoPonto
+            // button2
             // 
-            this.dgvFechamentoPonto.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dgvFechamentoPonto.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.dgvFechamentoPonto.BackgroundColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.ControlLightLight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvFechamentoPonto.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
-            this.dgvFechamentoPonto.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvFechamentoPonto.Location = new System.Drawing.Point(6, 195);
-            this.dgvFechamentoPonto.Name = "dgvFechamentoPonto";
-            this.dgvFechamentoPonto.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvFechamentoPonto.Size = new System.Drawing.Size(946, 257);
-            this.dgvFechamentoPonto.TabIndex = 1;
+            this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.Location = new System.Drawing.Point(868, 166);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.TabIndex = 19;
+            this.button2.Text = "Sair";
+            this.button2.UseVisualStyleBackColor = true;
             // 
-            // label17
+            // btnCancelFechamento
             // 
-            this.label17.AutoSize = true;
-            this.label17.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.Location = new System.Drawing.Point(6, 30);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(69, 16);
-            this.label17.TabIndex = 3;
-            this.label17.Text = "Data Inicio";
+            this.btnCancelFechamento.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnCancelFechamento.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancelFechamento.Location = new System.Drawing.Point(787, 166);
+            this.btnCancelFechamento.Name = "btnCancelFechamento";
+            this.btnCancelFechamento.Size = new System.Drawing.Size(75, 23);
+            this.btnCancelFechamento.TabIndex = 20;
+            this.btnCancelFechamento.Text = "Cancelar";
+            this.btnCancelFechamento.UseVisualStyleBackColor = true;
             // 
-            // dtInicioFechamento
+            // btnPrinter
             // 
-            this.dtInicioFechamento.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtInicioFechamento.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtInicioFechamento.Location = new System.Drawing.Point(120, 27);
-            this.dtInicioFechamento.Name = "dtInicioFechamento";
-            this.dtInicioFechamento.Size = new System.Drawing.Size(115, 20);
-            this.dtInicioFechamento.TabIndex = 4;
+            this.btnPrinter.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnPrinter.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPrinter.Location = new System.Drawing.Point(706, 166);
+            this.btnPrinter.Name = "btnPrinter";
+            this.btnPrinter.Size = new System.Drawing.Size(75, 23);
+            this.btnPrinter.TabIndex = 21;
+            this.btnPrinter.Text = "Imprimir";
+            this.btnPrinter.UseVisualStyleBackColor = true;
             // 
-            // label18
+            // label23
             // 
-            this.label18.AutoSize = true;
-            this.label18.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.Location = new System.Drawing.Point(6, 56);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(61, 16);
-            this.label18.TabIndex = 5;
-            this.label18.Text = "Data Fim";
-            // 
-            // dtFimFechamento
-            // 
-            this.dtFimFechamento.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtFimFechamento.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtFimFechamento.Location = new System.Drawing.Point(120, 53);
-            this.dtFimFechamento.Name = "dtFimFechamento";
-            this.dtFimFechamento.Size = new System.Drawing.Size(115, 20);
-            this.dtFimFechamento.TabIndex = 6;
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label19.Location = new System.Drawing.Point(6, 80);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(48, 16);
-            this.label19.TabIndex = 7;
-            this.label19.Text = "Código";
-            // 
-            // txtCodFuncFechamento
-            // 
-            this.txtCodFuncFechamento.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtCodFuncFechamento.Location = new System.Drawing.Point(120, 79);
-            this.txtCodFuncFechamento.Name = "txtCodFuncFechamento";
-            this.txtCodFuncFechamento.ReadOnly = true;
-            this.txtCodFuncFechamento.Size = new System.Drawing.Size(100, 20);
-            this.txtCodFuncFechamento.TabIndex = 8;
-            this.txtCodFuncFechamento.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // txtNomeFuncFechamento
-            // 
-            this.txtNomeFuncFechamento.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNomeFuncFechamento.Location = new System.Drawing.Point(120, 105);
-            this.txtNomeFuncFechamento.Name = "txtNomeFuncFechamento";
-            this.txtNomeFuncFechamento.ReadOnly = true;
-            this.txtNomeFuncFechamento.Size = new System.Drawing.Size(285, 20);
-            this.txtNomeFuncFechamento.TabIndex = 9;
-            // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label20.Location = new System.Drawing.Point(6, 106);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(75, 16);
-            this.label20.TabIndex = 10;
-            this.label20.Text = "Funcionário";
-            // 
-            // btnPesqFuncFechamento
-            // 
-            this.btnPesqFuncFechamento.Location = new System.Drawing.Point(492, 102);
-            this.btnPesqFuncFechamento.Name = "btnPesqFuncFechamento";
-            this.btnPesqFuncFechamento.Size = new System.Drawing.Size(75, 23);
-            this.btnPesqFuncFechamento.TabIndex = 12;
-            this.btnPesqFuncFechamento.Text = "Pesquisar";
-            this.btnPesqFuncFechamento.UseVisualStyleBackColor = true;
-            // 
-            // btnFuncFechamento
-            // 
-            this.btnFuncFechamento.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnFuncFechamento.Location = new System.Drawing.Point(411, 102);
-            this.btnFuncFechamento.Name = "btnFuncFechamento";
-            this.btnFuncFechamento.Size = new System.Drawing.Size(75, 23);
-            this.btnFuncFechamento.TabIndex = 11;
-            this.btnFuncFechamento.Text = "Buscar";
-            this.btnFuncFechamento.UseVisualStyleBackColor = true;
-            this.btnFuncFechamento.Click += new System.EventHandler(this.btnFuncFechamento_Click);
-            // 
-            // label21
-            // 
-            this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(117, 153);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(71, 13);
-            this.label21.TabIndex = 13;
-            this.label21.Text = "Saldo Mensal";
-            // 
-            // txtSaldoMes
-            // 
-            this.txtSaldoMes.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSaldoMes.Location = new System.Drawing.Point(120, 169);
-            this.txtSaldoMes.Name = "txtSaldoMes";
-            this.txtSaldoMes.ReadOnly = true;
-            this.txtSaldoMes.Size = new System.Drawing.Size(90, 20);
-            this.txtSaldoMes.TabIndex = 14;
-            this.txtSaldoMes.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // txtSaldoPositivo
-            // 
-            this.txtSaldoPositivo.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSaldoPositivo.Location = new System.Drawing.Point(216, 169);
-            this.txtSaldoPositivo.Name = "txtSaldoPositivo";
-            this.txtSaldoPositivo.ReadOnly = true;
-            this.txtSaldoPositivo.Size = new System.Drawing.Size(90, 20);
-            this.txtSaldoPositivo.TabIndex = 15;
-            this.txtSaldoPositivo.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // label22
-            // 
-            this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(213, 153);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(74, 13);
-            this.label22.TabIndex = 16;
-            this.label22.Text = "Saldo Positivo";
+            this.label23.AutoSize = true;
+            this.label23.Location = new System.Drawing.Point(309, 153);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(80, 13);
+            this.label23.TabIndex = 18;
+            this.label23.Text = "Saldo Negativo";
             // 
             // txtSaldoNegativo
             // 
@@ -955,44 +841,163 @@ namespace ERPMega
             this.txtSaldoNegativo.TabIndex = 17;
             this.txtSaldoNegativo.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // label23
+            // label22
             // 
-            this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(309, 153);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(80, 13);
-            this.label23.TabIndex = 18;
-            this.label23.Text = "Saldo Negativo";
+            this.label22.AutoSize = true;
+            this.label22.Location = new System.Drawing.Point(213, 153);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(74, 13);
+            this.label22.TabIndex = 16;
+            this.label22.Text = "Saldo Positivo";
             // 
-            // button2
+            // txtSaldoPositivo
             // 
-            this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button2.Location = new System.Drawing.Point(877, 169);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 19;
-            this.button2.Text = "Sair";
-            this.button2.UseVisualStyleBackColor = true;
+            this.txtSaldoPositivo.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSaldoPositivo.Location = new System.Drawing.Point(216, 169);
+            this.txtSaldoPositivo.Name = "txtSaldoPositivo";
+            this.txtSaldoPositivo.ReadOnly = true;
+            this.txtSaldoPositivo.Size = new System.Drawing.Size(90, 20);
+            this.txtSaldoPositivo.TabIndex = 15;
+            this.txtSaldoPositivo.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // btnCancelFechamento
+            // txtSaldoMes
             // 
-            this.btnCancelFechamento.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnCancelFechamento.Location = new System.Drawing.Point(796, 169);
-            this.btnCancelFechamento.Name = "btnCancelFechamento";
-            this.btnCancelFechamento.Size = new System.Drawing.Size(75, 23);
-            this.btnCancelFechamento.TabIndex = 20;
-            this.btnCancelFechamento.Text = "Cancelar";
-            this.btnCancelFechamento.UseVisualStyleBackColor = true;
+            this.txtSaldoMes.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSaldoMes.Location = new System.Drawing.Point(120, 169);
+            this.txtSaldoMes.Name = "txtSaldoMes";
+            this.txtSaldoMes.ReadOnly = true;
+            this.txtSaldoMes.Size = new System.Drawing.Size(90, 20);
+            this.txtSaldoMes.TabIndex = 14;
+            this.txtSaldoMes.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // btnPrinter
+            // label21
             // 
-            this.btnPrinter.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnPrinter.Location = new System.Drawing.Point(715, 169);
-            this.btnPrinter.Name = "btnPrinter";
-            this.btnPrinter.Size = new System.Drawing.Size(75, 23);
-            this.btnPrinter.TabIndex = 21;
-            this.btnPrinter.Text = "Imprimir";
-            this.btnPrinter.UseVisualStyleBackColor = true;
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(117, 153);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(71, 13);
+            this.label21.TabIndex = 13;
+            this.label21.Text = "Saldo Mensal";
+            // 
+            // btnPesqFuncFechamento
+            // 
+            this.btnPesqFuncFechamento.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPesqFuncFechamento.Location = new System.Drawing.Point(492, 102);
+            this.btnPesqFuncFechamento.Name = "btnPesqFuncFechamento";
+            this.btnPesqFuncFechamento.Size = new System.Drawing.Size(75, 23);
+            this.btnPesqFuncFechamento.TabIndex = 12;
+            this.btnPesqFuncFechamento.Text = "Pesquisar";
+            this.btnPesqFuncFechamento.UseVisualStyleBackColor = true;
+            // 
+            // btnFuncFechamento
+            // 
+            this.btnFuncFechamento.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFuncFechamento.Location = new System.Drawing.Point(411, 102);
+            this.btnFuncFechamento.Name = "btnFuncFechamento";
+            this.btnFuncFechamento.Size = new System.Drawing.Size(75, 23);
+            this.btnFuncFechamento.TabIndex = 11;
+            this.btnFuncFechamento.Text = "Buscar";
+            this.btnFuncFechamento.UseVisualStyleBackColor = true;
+            this.btnFuncFechamento.Click += new System.EventHandler(this.btnFuncFechamento_Click);
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label20.Location = new System.Drawing.Point(6, 106);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(78, 16);
+            this.label20.TabIndex = 10;
+            this.label20.Text = "Funcionário";
+            // 
+            // txtNomeFuncFechamento
+            // 
+            this.txtNomeFuncFechamento.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNomeFuncFechamento.Location = new System.Drawing.Point(120, 105);
+            this.txtNomeFuncFechamento.Name = "txtNomeFuncFechamento";
+            this.txtNomeFuncFechamento.ReadOnly = true;
+            this.txtNomeFuncFechamento.Size = new System.Drawing.Size(285, 20);
+            this.txtNomeFuncFechamento.TabIndex = 9;
+            // 
+            // txtCodFuncFechamento
+            // 
+            this.txtCodFuncFechamento.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtCodFuncFechamento.Location = new System.Drawing.Point(120, 79);
+            this.txtCodFuncFechamento.Name = "txtCodFuncFechamento";
+            this.txtCodFuncFechamento.ReadOnly = true;
+            this.txtCodFuncFechamento.Size = new System.Drawing.Size(100, 20);
+            this.txtCodFuncFechamento.TabIndex = 8;
+            this.txtCodFuncFechamento.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label19.Location = new System.Drawing.Point(6, 80);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(52, 16);
+            this.label19.TabIndex = 7;
+            this.label19.Text = "Código";
+            // 
+            // dtFimFechamento
+            // 
+            this.dtFimFechamento.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtFimFechamento.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtFimFechamento.Location = new System.Drawing.Point(120, 53);
+            this.dtFimFechamento.Name = "dtFimFechamento";
+            this.dtFimFechamento.Size = new System.Drawing.Size(115, 20);
+            this.dtFimFechamento.TabIndex = 6;
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label18.Location = new System.Drawing.Point(6, 56);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(62, 16);
+            this.label18.TabIndex = 5;
+            this.label18.Text = "Data Fim";
+            // 
+            // dtInicioFechamento
+            // 
+            this.dtInicioFechamento.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dtInicioFechamento.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtInicioFechamento.Location = new System.Drawing.Point(120, 27);
+            this.dtInicioFechamento.Name = "dtInicioFechamento";
+            this.dtInicioFechamento.Size = new System.Drawing.Size(115, 20);
+            this.dtInicioFechamento.TabIndex = 4;
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label17.Location = new System.Drawing.Point(6, 30);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(71, 16);
+            this.label17.TabIndex = 3;
+            this.label17.Text = "Data Inicio";
+            // 
+            // dgvFechamentoPonto
+            // 
+            this.dgvFechamentoPonto.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvFechamentoPonto.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dgvFechamentoPonto.BackgroundColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.ControlLightLight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvFechamentoPonto.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvFechamentoPonto.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvFechamentoPonto.Location = new System.Drawing.Point(6, 195);
+            this.dgvFechamentoPonto.Name = "dgvFechamentoPonto";
+            this.dgvFechamentoPonto.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvFechamentoPonto.Size = new System.Drawing.Size(946, 257);
+            this.dgvFechamentoPonto.TabIndex = 1;
             // 
             // Principal
             // 
@@ -1000,9 +1005,10 @@ namespace ERPMega
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(981, 498);
             this.Controls.Add(this.tabPrincipal);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Principal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "ERP-Mega";
+            this.Text = "Antares-ERP";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.tabPrincipal.ResumeLayout(false);
             this.tpFuncionario.ResumeLayout(false);

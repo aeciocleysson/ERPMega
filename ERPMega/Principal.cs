@@ -293,6 +293,8 @@ namespace ERPMega
 
                         CleanFields();
                         GetByIdHorario(Convert.ToInt32(txtCodHoraFunc.Text), Convert.ToDateTime(dpDtInicio.Text), Convert.ToDateTime(dpDtFim.Text));
+                        txtData.Focus();
+                        txtData.Select();
                     }
                     else
                     {
