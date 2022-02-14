@@ -561,5 +561,46 @@ namespace ERPMega
             else
                 return;
         }
+
+        private void btnSairFunc_Click(object sender, EventArgs e)
+        {
+            tabPrincipal.SelectedTab = tpHome;
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            tabPrincipal.SelectedTab = tpHome;
+        }
+
+        private void btnCancelarHorarios_Click(object sender, EventArgs e)
+        {
+            rbInserirHorario.Checked = false;
+            rbCorrigirHorario.Checked = false;
+            txtCodHoraFunc.Clear();
+            cbMotivos.SelectedIndex = -1;
+            txtNomeHoraFunc.Clear();
+            txtId.Clear();
+            txtData.Clear();
+            txtEntrada.Clear();
+            txtSaidaAlmoco.Clear();
+            txtRetorno.Clear();
+            txtSaida.Clear();
+            dgvHours.DataSource = null;
+        }
+
+        private void btnSairFechamento_Click(object sender, EventArgs e)
+        {
+            tabPrincipal.SelectedTab = tpHome;
+        }
+
+        private void btnCancelFechamento_Click(object sender, EventArgs e)
+        {
+            txtCodFuncFechamento.Clear();
+            txtNomeFuncFechamento.Clear();
+            txtSaldoMes.Clear();
+            txtSaldoPositivo.Clear();
+            txtSaldoNegativo.Clear();
+            dgvFechamentoPonto.DataSource = null;
+        }
     }
 }

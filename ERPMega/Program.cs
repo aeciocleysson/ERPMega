@@ -1,7 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using ERPMega.Forms;
+using System;
 using System.Windows.Forms;
 
 namespace ERPMega
@@ -16,7 +14,8 @@ namespace ERPMega
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Principal());
+            //Application.Run(new Principal());
+            Application.Run(new FrmLogin());
         }
     }
 }

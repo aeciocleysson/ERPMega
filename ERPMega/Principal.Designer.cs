@@ -32,7 +32,7 @@ namespace ERPMega
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Principal));
             this.tabPrincipal = new System.Windows.Forms.TabControl();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.tpHome = new System.Windows.Forms.TabPage();
             this.tpFuncionario = new System.Windows.Forms.TabPage();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.txtCadCodFuncao = new System.Windows.Forms.TextBox();
@@ -62,7 +62,7 @@ namespace ERPMega
             this.rbCorrigirHorario = new System.Windows.Forms.RadioButton();
             this.rbInserirHorario = new System.Windows.Forms.RadioButton();
             this.btnClose = new System.Windows.Forms.Button();
-            this.btnCancel = new System.Windows.Forms.Button();
+            this.btnCancelarHorarios = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
@@ -88,7 +88,7 @@ namespace ERPMega
             this.dpDtInicio = new System.Windows.Forms.DateTimePicker();
             this.dgvHours = new System.Windows.Forms.DataGridView();
             this.tpFechamentoMensal = new System.Windows.Forms.TabPage();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnSairFechamento = new System.Windows.Forms.Button();
             this.btnCancelFechamento = new System.Windows.Forms.Button();
             this.btnPrinter = new System.Windows.Forms.Button();
             this.label23 = new System.Windows.Forms.Label();
@@ -124,7 +124,7 @@ namespace ERPMega
             this.tabPrincipal.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.tabPrincipal.Controls.Add(this.tabPage1);
+            this.tabPrincipal.Controls.Add(this.tpHome);
             this.tabPrincipal.Controls.Add(this.tpFuncionario);
             this.tabPrincipal.Controls.Add(this.tpHorarios);
             this.tabPrincipal.Controls.Add(this.tpFechamentoMensal);
@@ -134,15 +134,15 @@ namespace ERPMega
             this.tabPrincipal.Size = new System.Drawing.Size(966, 484);
             this.tabPrincipal.TabIndex = 0;
             // 
-            // tabPage1
+            // tpHome
             // 
-            this.tabPage1.Location = new System.Drawing.Point(4, 22);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(958, 458);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "Principal";
-            this.tabPage1.UseVisualStyleBackColor = true;
+            this.tpHome.Location = new System.Drawing.Point(4, 22);
+            this.tpHome.Name = "tpHome";
+            this.tpHome.Padding = new System.Windows.Forms.Padding(3);
+            this.tpHome.Size = new System.Drawing.Size(958, 458);
+            this.tpHome.TabIndex = 0;
+            this.tpHome.Text = "Principal";
+            this.tpHome.UseVisualStyleBackColor = true;
             // 
             // tpFuncionario
             // 
@@ -295,6 +295,7 @@ namespace ERPMega
             this.btnSairFunc.TabIndex = 15;
             this.btnSairFunc.Text = "Sair";
             this.btnSairFunc.UseVisualStyleBackColor = true;
+            this.btnSairFunc.Click += new System.EventHandler(this.btnSairFunc_Click);
             // 
             // label3
             // 
@@ -417,7 +418,7 @@ namespace ERPMega
             this.tpHorarios.Controls.Add(this.rbCorrigirHorario);
             this.tpHorarios.Controls.Add(this.rbInserirHorario);
             this.tpHorarios.Controls.Add(this.btnClose);
-            this.tpHorarios.Controls.Add(this.btnCancel);
+            this.tpHorarios.Controls.Add(this.btnCancelarHorarios);
             this.tpHorarios.Controls.Add(this.btnSave);
             this.tpHorarios.Controls.Add(this.label12);
             this.tpHorarios.Controls.Add(this.label13);
@@ -504,17 +505,19 @@ namespace ERPMega
             this.btnClose.TabIndex = 32;
             this.btnClose.Text = "Sair";
             this.btnClose.UseVisualStyleBackColor = true;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
-            // btnCancel
+            // btnCancelarHorarios
             // 
-            this.btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancel.Location = new System.Drawing.Point(787, 166);
-            this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(75, 23);
-            this.btnCancel.TabIndex = 31;
-            this.btnCancel.Text = "Cancelar";
-            this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancelarHorarios.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnCancelarHorarios.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancelarHorarios.Location = new System.Drawing.Point(787, 166);
+            this.btnCancelarHorarios.Name = "btnCancelarHorarios";
+            this.btnCancelarHorarios.Size = new System.Drawing.Size(75, 23);
+            this.btnCancelarHorarios.TabIndex = 31;
+            this.btnCancelarHorarios.Text = "Cancelar";
+            this.btnCancelarHorarios.UseVisualStyleBackColor = true;
+            this.btnCancelarHorarios.Click += new System.EventHandler(this.btnCancelarHorarios_Click);
             // 
             // btnSave
             // 
@@ -761,7 +764,7 @@ namespace ERPMega
             // 
             // tpFechamentoMensal
             // 
-            this.tpFechamentoMensal.Controls.Add(this.button2);
+            this.tpFechamentoMensal.Controls.Add(this.btnSairFechamento);
             this.tpFechamentoMensal.Controls.Add(this.btnCancelFechamento);
             this.tpFechamentoMensal.Controls.Add(this.btnPrinter);
             this.tpFechamentoMensal.Controls.Add(this.label23);
@@ -789,16 +792,17 @@ namespace ERPMega
             this.tpFechamentoMensal.Text = "Fechamento Mensal";
             this.tpFechamentoMensal.UseVisualStyleBackColor = true;
             // 
-            // button2
+            // btnSairFechamento
             // 
-            this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(868, 166);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 19;
-            this.button2.Text = "Sair";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnSairFechamento.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnSairFechamento.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSairFechamento.Location = new System.Drawing.Point(868, 166);
+            this.btnSairFechamento.Name = "btnSairFechamento";
+            this.btnSairFechamento.Size = new System.Drawing.Size(75, 23);
+            this.btnSairFechamento.TabIndex = 19;
+            this.btnSairFechamento.Text = "Sair";
+            this.btnSairFechamento.UseVisualStyleBackColor = true;
+            this.btnSairFechamento.Click += new System.EventHandler(this.btnSairFechamento_Click);
             // 
             // btnCancelFechamento
             // 
@@ -810,6 +814,7 @@ namespace ERPMega
             this.btnCancelFechamento.TabIndex = 20;
             this.btnCancelFechamento.Text = "Cancelar";
             this.btnCancelFechamento.UseVisualStyleBackColor = true;
+            this.btnCancelFechamento.Click += new System.EventHandler(this.btnCancelFechamento_Click);
             // 
             // btnPrinter
             // 
@@ -1030,7 +1035,7 @@ namespace ERPMega
         #endregion
 
         private System.Windows.Forms.TabControl tabPrincipal;
-        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.TabPage tpHome;
         private System.Windows.Forms.TabPage tpFuncionario;
         private System.Windows.Forms.TabPage tpHorarios;
         private System.Windows.Forms.Label label3;
@@ -1079,7 +1084,7 @@ namespace ERPMega
         private System.Windows.Forms.DateTimePicker dpDtInicio;
         private System.Windows.Forms.DataGridView dgvHours;
         private System.Windows.Forms.Button btnClose;
-        private System.Windows.Forms.Button btnCancel;
+        private System.Windows.Forms.Button btnCancelarHorarios;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.RadioButton rbCorrigirHorario;
         private System.Windows.Forms.RadioButton rbInserirHorario;
@@ -1087,7 +1092,7 @@ namespace ERPMega
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.TabPage tpFechamentoMensal;
         public System.Windows.Forms.DataGridView dgvFechamentoPonto;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnSairFechamento;
         private System.Windows.Forms.Button btnCancelFechamento;
         private System.Windows.Forms.Button btnPrinter;
         private System.Windows.Forms.Label label23;
