@@ -204,6 +204,7 @@
     <Compile Include="Model\LogPonto.cs" />
     <Compile Include="Model\Ponto.cs" />
     <Compile Include="Model\SituacaoFuncionario.cs" />
+    <Compile Include="Model\Usuario.cs" />
     <Compile Include="Principal.cs">
       <SubType>Form</SubType>
     </Compile>

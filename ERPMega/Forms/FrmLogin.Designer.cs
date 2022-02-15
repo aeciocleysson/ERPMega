@@ -82,6 +82,7 @@ namespace ERPMega.Forms
             this.txtSenha.Size = new System.Drawing.Size(271, 32);
             this.txtSenha.TabIndex = 8;
             this.txtSenha.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtSenha.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSenha_KeyPress);
             // 
             // txtUsuario
             // 
@@ -93,6 +94,7 @@ namespace ERPMega.Forms
             this.txtUsuario.Size = new System.Drawing.Size(271, 32);
             this.txtUsuario.TabIndex = 7;
             this.txtUsuario.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtUsuario.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtUsuario_KeyPress);
             // 
             // btnLogar
             // 
@@ -106,6 +108,7 @@ namespace ERPMega.Forms
             this.btnLogar.TabIndex = 11;
             this.btnLogar.Text = "Entrar";
             this.btnLogar.UseVisualStyleBackColor = false;
+            this.btnLogar.Click += new System.EventHandler(this.btnLogar_Click);
             // 
             // btnSair
             // 
@@ -119,6 +122,7 @@ namespace ERPMega.Forms
             this.btnSair.TabIndex = 12;
             this.btnSair.Text = "Cancelar";
             this.btnSair.UseVisualStyleBackColor = false;
+            this.btnSair.Click += new System.EventHandler(this.btnSair_Click);
             // 
             // label3
             // 
