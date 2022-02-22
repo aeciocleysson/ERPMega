@@ -29,12 +29,35 @@ namespace ERPMega.Relatorio
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.rvFechamentoMensal = new Microsoft.Reporting.WinForms.ReportViewer();
+            this.SuspendLayout();
+            // 
+            // rvFechamentoMensal
+            // 
+            this.rvFechamentoMensal.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.rvFechamentoMensal.LocalReport.ReportEmbeddedResource = "ERPMega.Relatorio.RelatorioMensal.rdlc";
+            this.rvFechamentoMensal.Location = new System.Drawing.Point(0, 0);
+            this.rvFechamentoMensal.Name = "rvFechamentoMensal";
+            this.rvFechamentoMensal.ServerReport.BearerToken = null;
+            this.rvFechamentoMensal.Size = new System.Drawing.Size(800, 450);
+            this.rvFechamentoMensal.TabIndex = 0;
+            // 
+            // FrmRelatorioMensal
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.rvFechamentoMensal);
+            this.Name = "FrmRelatorioMensal";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmRelatorioMensal";
+            this.Load += new System.EventHandler(this.FrmRelatorioMensal_Load);
+            this.ResumeLayout(false);
+
         }
 
         #endregion
+
+        private Microsoft.Reporting.WinForms.ReportViewer rvFechamentoMensal;
     }
 }

@@ -33,6 +33,7 @@ namespace ERPMega
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Principal));
             this.tabPrincipal = new System.Windows.Forms.TabControl();
             this.tpHome = new System.Windows.Forms.TabPage();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.tpFuncionario = new System.Windows.Forms.TabPage();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.txtCadCodFuncao = new System.Windows.Forms.TextBox();
@@ -108,9 +109,9 @@ namespace ERPMega
             this.dtInicioFechamento = new System.Windows.Forms.DateTimePicker();
             this.label17 = new System.Windows.Forms.Label();
             this.dgvFechamentoPonto = new System.Windows.Forms.DataGridView();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.tabPrincipal.SuspendLayout();
             this.tpHome.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tpFuncionario.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFuncao)).BeginInit();
@@ -119,7 +120,6 @@ namespace ERPMega
             ((System.ComponentModel.ISupportInitialize)(this.dgvHours)).BeginInit();
             this.tpFechamentoMensal.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFechamentoPonto)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // tabPrincipal
@@ -147,6 +147,17 @@ namespace ERPMega
             this.tpHome.TabIndex = 0;
             this.tpHome.Text = "Principal";
             this.tpHome.UseVisualStyleBackColor = true;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBox1.Image = global::ERPMega.Properties.Resources.star;
+            this.pictureBox1.Location = new System.Drawing.Point(3, 3);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(952, 452);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
             // 
             // tpFuncionario
             // 
@@ -830,6 +841,7 @@ namespace ERPMega
             this.btnPrinter.TabIndex = 21;
             this.btnPrinter.Text = "Imprimir";
             this.btnPrinter.UseVisualStyleBackColor = true;
+            this.btnPrinter.Click += new System.EventHandler(this.btnPrinter_Click);
             // 
             // label23
             // 
@@ -1008,17 +1020,6 @@ namespace ERPMega
             this.dgvFechamentoPonto.Size = new System.Drawing.Size(946, 257);
             this.dgvFechamentoPonto.TabIndex = 1;
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox1.Image = global::ERPMega.Properties.Resources.star;
-            this.pictureBox1.Location = new System.Drawing.Point(3, 3);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(952, 452);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
-            // 
             // Principal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1032,6 +1033,7 @@ namespace ERPMega
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.tabPrincipal.ResumeLayout(false);
             this.tpHome.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.tpFuncionario.ResumeLayout(false);
             this.tpFuncionario.PerformLayout();
             this.groupBox1.ResumeLayout(false);
@@ -1044,7 +1046,6 @@ namespace ERPMega
             this.tpFechamentoMensal.ResumeLayout(false);
             this.tpFechamentoMensal.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFechamentoPonto)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }

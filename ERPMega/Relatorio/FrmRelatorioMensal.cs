@@ -12,9 +12,18 @@ namespace ERPMega.Relatorio
 {
     public partial class FrmRelatorioMensal : Form
     {
-        public FrmRelatorioMensal()
+        DataTable _data = new DataTable();
+        public FrmRelatorioMensal(DataTable data)
         {
             InitializeComponent();
+            _data = data;
+        }
+
+        private void FrmRelatorioMensal_Load(object sender, EventArgs e)
+        {
+            this.rvFechamentoMensal.LocalReport.DataSources.Clear();
+            this.rvFechamentoMensal.LocalReport.DataSources.Add(new Microsoft.Reporting.WinForms.ReportDataSource("DataSetFechamentoMensal", _data));
+            this.rvFechamentoMensal.RefreshReport();
         }
     }
 }

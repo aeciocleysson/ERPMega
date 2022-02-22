@@ -1,6 +1,7 @@
 ﻿using ERPMega.Data;
 using ERPMega.Forms;
 using ERPMega.Model;
+using ERPMega.Relatorio;
 using ERPMega.ViewModel;
 using System;
 using System.Data;
@@ -601,6 +602,41 @@ namespace ERPMega
             txtSaldoPositivo.Clear();
             txtSaldoNegativo.Clear();
             dgvFechamentoPonto.DataSource = null;
+        }
+
+        private void btnPrinter_Click(object sender, EventArgs e)
+        {
+            var data =  GerarDadosRelatorio();
+
+            var relatorio = new FrmRelatorioMensal(data);
+            relatorio.Show();
+        }
+
+        private DataTable GerarDadosRelatorio()
+        {
+            var data = new DataTable();
+
+            data.Columns.Add("Inserted");
+            data.Columns.Add("Entrada");
+            data.Columns.Add("SaidaIntervalo");
+            data.Columns.Add("RetornoIntervalo");
+            data.Columns.Add("Saida");
+            data.Columns.Add("TotalTrabalhado");
+
+            foreach (DataGridViewRow item in dgvFechamentoPonto.Rows)
+            {
+                data.Rows.Add(
+                    item.Cells["Dia"].Value.ToString(),
+                    item.Cells["Entrada"].Value.ToString(),
+                    item.Cells["Almoço"].Value.ToString(),
+                    item.Cells["RetornoAlmoço"].Value.ToString(),
+                    item.Cells["Saida"].Value.ToString(),
+                    item.Cells["Total"].Value.ToString()
+
+                           );
+            }
+            return data;
+
         }
     }
 }
