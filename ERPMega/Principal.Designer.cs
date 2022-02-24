@@ -89,6 +89,7 @@ namespace ERPMega
             this.dpDtInicio = new System.Windows.Forms.DateTimePicker();
             this.dgvHours = new System.Windows.Forms.DataGridView();
             this.tpFechamentoMensal = new System.Windows.Forms.TabPage();
+            this.label24 = new System.Windows.Forms.Label();
             this.btnSairFechamento = new System.Windows.Forms.Button();
             this.btnCancelFechamento = new System.Windows.Forms.Button();
             this.btnPrinter = new System.Windows.Forms.Button();
@@ -102,6 +103,7 @@ namespace ERPMega
             this.btnFuncFechamento = new System.Windows.Forms.Button();
             this.label20 = new System.Windows.Forms.Label();
             this.txtNomeFuncFechamento = new System.Windows.Forms.TextBox();
+            this.txtMatriculaFechamento = new System.Windows.Forms.TextBox();
             this.txtCodFuncFechamento = new System.Windows.Forms.TextBox();
             this.label19 = new System.Windows.Forms.Label();
             this.dtFimFechamento = new System.Windows.Forms.DateTimePicker();
@@ -779,6 +781,7 @@ namespace ERPMega
             // 
             // tpFechamentoMensal
             // 
+            this.tpFechamentoMensal.Controls.Add(this.label24);
             this.tpFechamentoMensal.Controls.Add(this.btnSairFechamento);
             this.tpFechamentoMensal.Controls.Add(this.btnCancelFechamento);
             this.tpFechamentoMensal.Controls.Add(this.btnPrinter);
@@ -792,6 +795,7 @@ namespace ERPMega
             this.tpFechamentoMensal.Controls.Add(this.btnFuncFechamento);
             this.tpFechamentoMensal.Controls.Add(this.label20);
             this.tpFechamentoMensal.Controls.Add(this.txtNomeFuncFechamento);
+            this.tpFechamentoMensal.Controls.Add(this.txtMatriculaFechamento);
             this.tpFechamentoMensal.Controls.Add(this.txtCodFuncFechamento);
             this.tpFechamentoMensal.Controls.Add(this.label19);
             this.tpFechamentoMensal.Controls.Add(this.dtFimFechamento);
@@ -806,6 +810,16 @@ namespace ERPMega
             this.tpFechamentoMensal.TabIndex = 3;
             this.tpFechamentoMensal.Text = "Fechamento Mensal";
             this.tpFechamentoMensal.UseVisualStyleBackColor = true;
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label24.Location = new System.Drawing.Point(6, 105);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(62, 16);
+            this.label24.TabIndex = 22;
+            this.label24.Text = "Matricula";
             // 
             // btnSairFechamento
             // 
@@ -903,7 +917,7 @@ namespace ERPMega
             // btnPesqFuncFechamento
             // 
             this.btnPesqFuncFechamento.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnPesqFuncFechamento.Location = new System.Drawing.Point(492, 102);
+            this.btnPesqFuncFechamento.Location = new System.Drawing.Point(492, 131);
             this.btnPesqFuncFechamento.Name = "btnPesqFuncFechamento";
             this.btnPesqFuncFechamento.Size = new System.Drawing.Size(75, 23);
             this.btnPesqFuncFechamento.TabIndex = 12;
@@ -913,7 +927,7 @@ namespace ERPMega
             // btnFuncFechamento
             // 
             this.btnFuncFechamento.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnFuncFechamento.Location = new System.Drawing.Point(411, 102);
+            this.btnFuncFechamento.Location = new System.Drawing.Point(411, 131);
             this.btnFuncFechamento.Name = "btnFuncFechamento";
             this.btnFuncFechamento.Size = new System.Drawing.Size(75, 23);
             this.btnFuncFechamento.TabIndex = 11;
@@ -925,7 +939,7 @@ namespace ERPMega
             // 
             this.label20.AutoSize = true;
             this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label20.Location = new System.Drawing.Point(6, 106);
+            this.label20.Location = new System.Drawing.Point(6, 129);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(78, 16);
             this.label20.TabIndex = 10;
@@ -934,11 +948,21 @@ namespace ERPMega
             // txtNomeFuncFechamento
             // 
             this.txtNomeFuncFechamento.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNomeFuncFechamento.Location = new System.Drawing.Point(120, 105);
+            this.txtNomeFuncFechamento.Location = new System.Drawing.Point(120, 131);
             this.txtNomeFuncFechamento.Name = "txtNomeFuncFechamento";
             this.txtNomeFuncFechamento.ReadOnly = true;
             this.txtNomeFuncFechamento.Size = new System.Drawing.Size(285, 20);
             this.txtNomeFuncFechamento.TabIndex = 9;
+            // 
+            // txtMatriculaFechamento
+            // 
+            this.txtMatriculaFechamento.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtMatriculaFechamento.Location = new System.Drawing.Point(120, 105);
+            this.txtMatriculaFechamento.Name = "txtMatriculaFechamento";
+            this.txtMatriculaFechamento.ReadOnly = true;
+            this.txtMatriculaFechamento.Size = new System.Drawing.Size(100, 20);
+            this.txtMatriculaFechamento.TabIndex = 8;
+            this.txtMatriculaFechamento.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // txtCodFuncFechamento
             // 
@@ -1130,6 +1154,8 @@ namespace ERPMega
         public System.Windows.Forms.DateTimePicker dtInicioFechamento;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label label24;
+        public System.Windows.Forms.TextBox txtMatriculaFechamento;
     }
 }
 

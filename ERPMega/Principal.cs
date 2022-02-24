@@ -23,7 +23,7 @@ namespace ERPMega
             GetAllSituacao();
             GetAllFuncionario();
             ClearFuncionario();
-            dpDtInicio.Text =  DateTime.Today.AddDays(-30).ToString();
+            dpDtInicio.Text = DateTime.Today.AddDays(-30).ToString();
         }
 
         #region Funcionário
@@ -200,7 +200,7 @@ namespace ERPMega
                       .Select(s => new
                       {
                           Codigo = s.Id,
-                          Data = s.Inserted,
+                          Data = s.Inserted.ToString("dd/MM/yyyy"),
                           Dia = s.Inserted.ToString("dddd", new CultureInfo("pt-BR")),
                           Entrada = s.Entrada,
                           Almoço = s.SaidaIntervalo,
@@ -384,7 +384,7 @@ namespace ERPMega
         #endregion
 
         #region Fechamento Mensal
-              
+
         public void GetByIdFechamentoMensal(int id, DateTime dtInicio, DateTime dtFim)
         {
 
@@ -409,8 +409,6 @@ namespace ERPMega
                           TotalIntervalo = s.TotalIntervalo,
                           Saida = s.Saida,
                           Total = s.TotalTrabalhado
-                          
-                          //Log = s.LogPonto.Descricao
                       })
                       .OrderBy(o => o.Data)
                       .ToList();
@@ -459,6 +457,7 @@ namespace ERPMega
 
                 txtCodFuncFechamento.Text = dataGrid.Cells[0].Value.ToString();
                 txtNomeFuncFechamento.Text = dataGrid.Cells[1].Value.ToString();
+                txtMatriculaFechamento.Text = dataGrid.Cells[2].Value.ToString();
             }
         }
 
@@ -606,9 +605,10 @@ namespace ERPMega
 
         private void btnPrinter_Click(object sender, EventArgs e)
         {
-            var data =  GerarDadosRelatorio();
+            var data = GerarDadosRelatorio();
 
-            var relatorio = new FrmRelatorioMensal(data);
+            var relatorio = new FrmRelatorioMensal(data, txtNomeFuncFechamento.Text, Convert.ToInt32(txtMatriculaFechamento.Text),
+                                                   txtSaldoMes.Text, dtInicioFechamento.Value, dtFimFechamento.Value);
             relatorio.Show();
         }
 
@@ -626,7 +626,7 @@ namespace ERPMega
             foreach (DataGridViewRow item in dgvFechamentoPonto.Rows)
             {
                 data.Rows.Add(
-                    item.Cells["Dia"].Value.ToString(),
+                    item.Cells["Data"].Value.ToString(),
                     item.Cells["Entrada"].Value.ToString(),
                     item.Cells["Almoço"].Value.ToString(),
                     item.Cells["RetornoAlmoço"].Value.ToString(),

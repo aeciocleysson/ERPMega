@@ -250,6 +250,7 @@
     <EmbeddedResource Include="Relatorio\RelatorioMensal.rdlc" />
     <None Include="packages.config" />
     <None Include="Properties\DataSources\ERPMega.Model.Funcionario.datasource" />
+    <None Include="Properties\DataSources\ERPMega.Model.LogPonto.datasource" />
     <None Include="Properties\DataSources\ERPMega.Model.Ponto.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

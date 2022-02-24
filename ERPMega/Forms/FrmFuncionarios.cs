@@ -28,7 +28,8 @@ namespace ERPMega.Forms
                 .Select(s => new
                 {
                     s.Id,
-                    s.Nome
+                    s.Nome,
+                    s.Matricula
                 }).OrderBy(o => o.Nome)
                 .ToList();
         }
