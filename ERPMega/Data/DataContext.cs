@@ -17,7 +17,7 @@ namespace ERPMega.Data
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseMySql("Host=localhost;Database=dberpmega;Username=root;Password=3103");
+            optionsBuilder.UseMySql("Host=localhost;Database=dbpmega;Username=root;Password=mega@3212");
         }
     }
 }

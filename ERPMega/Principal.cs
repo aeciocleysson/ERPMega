@@ -600,6 +600,7 @@ namespace ERPMega
             txtSaldoMes.Clear();
             txtSaldoPositivo.Clear();
             txtSaldoNegativo.Clear();
+            txtMatriculaFechamento.Clear();
             dgvFechamentoPonto.DataSource = null;
         }
 
@@ -607,9 +608,16 @@ namespace ERPMega
         {
             var data = GerarDadosRelatorio();
 
-            var relatorio = new FrmRelatorioMensal(data, txtNomeFuncFechamento.Text, Convert.ToInt32(txtMatriculaFechamento.Text),
-                                                   txtSaldoMes.Text, dtInicioFechamento.Value, dtFimFechamento.Value);
-            relatorio.Show();
+            if(dgvFechamentoPonto.DataSource != null)
+            {
+                var relatorio = new FrmRelatorioMensal(data, txtNomeFuncFechamento.Text, Convert.ToInt32(txtMatriculaFechamento.Text),
+                                                    dtInicioFechamento.Value, dtFimFechamento.Value);
+                relatorio.Show();
+            }
+            else
+            {
+                return;
+            }            
         }
 
         private DataTable GerarDadosRelatorio()

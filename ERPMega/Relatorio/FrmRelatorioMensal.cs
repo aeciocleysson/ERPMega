@@ -9,15 +9,13 @@ namespace ERPMega.Relatorio
         DataTable _data = new DataTable();
         string _nomeFuncionario;
         long _matriculaFuncionario;
-        string _totalTrabalhado;
         DateTime _dtInicio, _dtFim;
-        public FrmRelatorioMensal(DataTable data, string nomeFuncionario, long matricula, string totalTrabalhado, DateTime dtInicio, DateTime dtFim)
+        public FrmRelatorioMensal(DataTable data, string nomeFuncionario, long matricula, DateTime dtInicio, DateTime dtFim)
         {
             InitializeComponent();
             _data = data;
             _nomeFuncionario = nomeFuncionario;
             _matriculaFuncionario = matricula;
-            _totalTrabalhado = totalTrabalhado;
             _dtInicio = dtInicio;
             _dtFim = dtFim;
         }
@@ -28,7 +26,6 @@ namespace ERPMega.Relatorio
             this.rvFechamentoMensal.LocalReport.DataSources.Add(new Microsoft.Reporting.WinForms.ReportDataSource("DataSetFechamentoMensal", _data));
             this.rvFechamentoMensal.LocalReport.SetParameters(new Microsoft.Reporting.WinForms.ReportParameter("nomeFuncionario", _nomeFuncionario));
             this.rvFechamentoMensal.LocalReport.SetParameters(new Microsoft.Reporting.WinForms.ReportParameter("matriculaFuncionario", _matriculaFuncionario.ToString()));
-            this.rvFechamentoMensal.LocalReport.SetParameters(new Microsoft.Reporting.WinForms.ReportParameter("totalTrabalhado", _totalTrabalhado));
             this.rvFechamentoMensal.LocalReport.SetParameters(new Microsoft.Reporting.WinForms.ReportParameter("dtInicio", _dtInicio.ToString()));
             this.rvFechamentoMensal.LocalReport.SetParameters(new Microsoft.Reporting.WinForms.ReportParameter("dtFim", _dtFim.ToString()));
 

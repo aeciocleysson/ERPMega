@@ -566,7 +566,7 @@
             <DataSetName>DataSetFechamentoMensal</DataSetName>
             <Top>1.87771cm</Top>
             <Height>1.2cm</Height>
-            <Width>16.02161cm</Width>
+            <Width>16.02162cm</Width>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -607,71 +607,6 @@
             <Height>0.51179cm</Height>
             <Width>2.17774cm</Width>
             <ZIndex>2</ZIndex>
-            <Style>
-              <Border>
-                <Style>None</Style>
-              </Border>
-              <PaddingLeft>2pt</PaddingLeft>
-              <PaddingRight>2pt</PaddingRight>
-              <PaddingTop>2pt</PaddingTop>
-              <PaddingBottom>2pt</PaddingBottom>
-            </Style>
-          </Textbox>
-          <Textbox Name="Textbox13">
-            <CanGrow>true</CanGrow>
-            <KeepTogether>true</KeepTogether>
-            <Paragraphs>
-              <Paragraph>
-                <TextRuns>
-                  <TextRun>
-                    <Value>Total:</Value>
-                    <Style>
-                      <FontSize>8pt</FontSize>
-                    </Style>
-                  </TextRun>
-                </TextRuns>
-                <Style />
-              </Paragraph>
-            </Paragraphs>
-            <rd:DefaultName>Textbox13</rd:DefaultName>
-            <Top>3.71271cm</Top>
-            <Left>12.59099cm</Left>
-            <Height>0.43242cm</Height>
-            <Width>1.01833cm</Width>
-            <ZIndex>3</ZIndex>
-            <Style>
-              <Border>
-                <Style>None</Style>
-              </Border>
-              <PaddingLeft>2pt</PaddingLeft>
-              <PaddingRight>2pt</PaddingRight>
-              <PaddingTop>2pt</PaddingTop>
-              <PaddingBottom>2pt</PaddingBottom>
-            </Style>
-          </Textbox>
-          <Textbox Name="totalTrabalhado">
-            <CanGrow>true</CanGrow>
-            <KeepTogether>true</KeepTogether>
-            <Paragraphs>
-              <Paragraph>
-                <TextRuns>
-                  <TextRun>
-                    <Value>=Parameters!totalTrabalhado.Value</Value>
-                    <Style>
-                      <FontSize>8pt</FontSize>
-                      <Format>t</Format>
-                    </Style>
-                  </TextRun>
-                </TextRuns>
-                <Style />
-              </Paragraph>
-            </Paragraphs>
-            <rd:DefaultName>totalTrabalhado</rd:DefaultName>
-            <Top>3.71271cm</Top>
-            <Left>13.64933cm</Left>
-            <Height>0.42008cm</Height>
-            <Width>2.20896cm</Width>
-            <ZIndex>4</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -950,7 +885,7 @@
             </TablixRowHierarchy>
             <Height>1.8cm</Height>
             <Width>16.02161cm</Width>
-            <ZIndex>5</ZIndex>
+            <ZIndex>3</ZIndex>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -964,7 +899,7 @@
       <Width>7.41893in</Width>
       <Page>
         <PageHeader>
-          <Height>0.73237cm</Height>
+          <Height>0.78529cm</Height>
           <PrintOnFirstPage>true</PrintOnFirstPage>
           <ReportItems>
             <Textbox Name="Textbox1">
@@ -1002,7 +937,7 @@
               <Top>0.73237cm</Top>
               <Left>0.06033cm</Left>
               <Height>0cm</Height>
-              <Width>18.78375cm</Width>
+              <Width>15.96129cm</Width>
               <ZIndex>1</ZIndex>
               <Style>
                 <Border>
@@ -1049,10 +984,6 @@
       <Nullable>true</Nullable>
       <Prompt>ReportParameter1</Prompt>
     </ReportParameter>
-    <ReportParameter Name="totalTrabalhado">
-      <DataType>String</DataType>
-      <Prompt>ReportParameter1</Prompt>
-    </ReportParameter>
     <ReportParameter Name="dtInicio">
       <DataType>DateTime</DataType>
       <Prompt>ReportParameter1</Prompt>
@@ -1076,11 +1007,6 @@
           <ColumnIndex>1</ColumnIndex>
           <RowIndex>0</RowIndex>
           <ParameterName>matriculaFuncionario</ParameterName>
-        </CellDefinition>
-        <CellDefinition>
-          <ColumnIndex>2</ColumnIndex>
-          <RowIndex>0</RowIndex>
-          <ParameterName>totalTrabalhado</ParameterName>
         </CellDefinition>
         <CellDefinition>
           <ColumnIndex>3</ColumnIndex>
