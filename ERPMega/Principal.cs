@@ -200,7 +200,7 @@ namespace ERPMega
                       .Select(s => new
                       {
                           Codigo = s.Id,
-                          Data = s.Inserted.ToString("dd/MM/yyyy"),
+                          Data = s.Inserted,
                           Dia = s.Inserted.ToString("dddd", new CultureInfo("pt-BR")),
                           Entrada = s.Entrada,
                           Almoço = s.SaidaIntervalo,
