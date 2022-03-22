@@ -6,7 +6,6 @@ namespace ERPMega.Model
     {
         public int FuncionarioId { get; private set; }
         public long Matricula { get; private set; }
-        public DateTime DiaSemana { get; private set; }
         public TimeSpan Entrada { get; private set; }
         public TimeSpan SaidaIntervalo { get; private set; }
         public TimeSpan RetornoIntervalo { get; private set; }

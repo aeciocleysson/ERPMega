@@ -316,7 +316,6 @@ namespace ERPMega
                     if (!txtData.Text.Equals("  /  /") && !txtEntrada.Text.Equals(":") && !txtSaidaAlmoco.Text.Equals(":") &&
                         !txtRetorno.Text.Equals(":") && !txtSaida.Text.Equals(":") && !string.IsNullOrEmpty(cbMotivos.Text))
                     {
-
                         var updatePonto = _context.Ponto.Find(Convert.ToInt32(txtId.Text));
 
                         viewModel.Entrada = TimeSpan.Parse(txtEntrada.Text);
