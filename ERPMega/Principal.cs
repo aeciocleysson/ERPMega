@@ -22,6 +22,7 @@ namespace ERPMega
             GetAllFuncao();
             GetAllSituacao();
             GetAllFuncionario();
+            GetStatusLancamentoPonto();
             ClearFuncionario();
             dpDtInicio.Text = DateTime.Today.AddDays(-30).ToString();
         }
@@ -184,6 +185,22 @@ namespace ERPMega
         #endregion
 
         #region Correção de horários
+
+        private void GetStatusLancamentoPonto()
+        {
+            var status = _context.StatusLancamentoPonto
+                            .Where(w => w.IsDelete == false)
+                            .Select(s => new
+                            {
+                                Codigo = s.Id,
+                                Descricao = s.Descricao
+                            }).OrderBy(o =>o.Descricao).ToList();
+
+            cbMotivos.DataSource = status;
+            cbMotivos.DisplayMember = "DESCRICAO";
+            cbMotivos.ValueMember = "CODIGO";
+
+        }
 
         public void GetByIdHorario(int id, DateTime dtInicio, DateTime dtFim)
         {

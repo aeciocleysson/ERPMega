@@ -23,7 +23,7 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <ApplicationRevision>3</ApplicationRevision>
+    <ApplicationRevision>5</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -210,6 +210,7 @@
     <Compile Include="Model\LogPonto.cs" />
     <Compile Include="Model\Ponto.cs" />
     <Compile Include="Model\SituacaoFuncionario.cs" />
+    <Compile Include="Model\StatusLancamentoPonto.cs" />
     <Compile Include="Model\Usuario.cs" />
     <Compile Include="Principal.cs">
       <SubType>Form</SubType>
@@ -231,6 +232,7 @@
     <Compile Include="ViewModel\FuncionarioViewModel.cs" />
     <Compile Include="ViewModel\LogViewModel.cs" />
     <Compile Include="ViewModel\PontoViewModel.cs" />
+    <Compile Include="ViewModel\StatusLancamentoPontoViewModel.cs" />
     <EmbeddedResource Include="Forms\FrmFuncionarios.resx">
       <DependentUpon>FrmFuncionarios.cs</DependentUpon>
     </EmbeddedResource>

@@ -14,7 +14,7 @@ namespace ERPMega
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FrmLogin());
+            Application.Run(new Principal());
             Environment.Exit(0);
         }
     }
