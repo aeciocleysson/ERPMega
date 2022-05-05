@@ -15,5 +15,6 @@ namespace ERPMega.ViewModel
         public double Minutos { get;  set; }
         public int LogPontoId { get; set; }
         public string DescricaoLog { get; set; }
+        public int MotivoId { get; set; }
     }
 }

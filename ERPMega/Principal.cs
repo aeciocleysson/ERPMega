@@ -194,7 +194,7 @@ namespace ERPMega
                             {
                                 Codigo = s.Id,
                                 Descricao = s.Descricao
-                            }).OrderBy(o =>o.Descricao).ToList();
+                            }).OrderBy(o => o.Descricao).ToList();
 
             cbMotivos.DataSource = status;
             cbMotivos.DisplayMember = "DESCRICAO";
@@ -249,7 +249,6 @@ namespace ERPMega
             dgvHours.DataSource = null;
         }
 
-
         private void InsertOrUpdatePonto(PontoViewModel viewModel)
         {
             var model = new Ponto();
@@ -264,55 +263,59 @@ namespace ERPMega
                     {
                         var funcionario = _context.Funcionario.Find(Convert.ToInt32(txtCodHoraFunc.Text));
 
-                        viewModel.Inserted = Convert.ToDateTime(txtData.Text);
-                        viewModel.Entrada = TimeSpan.Parse(txtEntrada.Text);
-                        viewModel.SaidaIntervalo = TimeSpan.Parse(txtSaidaAlmoco.Text);
-                        viewModel.RetornoIntervalo = TimeSpan.Parse(txtRetorno.Text);
-                        viewModel.TotalIntervalo = (viewModel.RetornoIntervalo - viewModel.SaidaIntervalo);
-                        viewModel.Saida = TimeSpan.Parse(txtSaida.Text);
-                        viewModel.TotalTrabalhado = (viewModel.Saida - viewModel.Entrada - viewModel.TotalIntervalo);
-                        viewModel.Minutos = viewModel.TotalTrabalhado.TotalMinutes;
-                        viewModel.FuncionarioId = funcionario.Id;
-                        viewModel.Matricula = funcionario.Matricula;
+                        var ponto = _context.Ponto.Any(a => a.FuncionarioId == funcionario.Id && a.Matricula == funcionario.Matricula &&
+                            a.Inserted == Convert.ToDateTime(txtData.Text) && a.IsDelete == false);
 
-                        if (cbMotivos.Text == "Trabalhado")
+                        if (!ponto)
                         {
+
+                            viewModel.Inserted = Convert.ToDateTime(txtData.Text);
+                            viewModel.FuncionarioId = funcionario.Id;
+                            viewModel.Matricula = funcionario.Matricula;
+                            viewModel.Entrada = TimeSpan.Parse(txtEntrada.Text);
+                            viewModel.SaidaIntervalo = TimeSpan.Parse(txtSaidaAlmoco.Text);
+                            viewModel.RetornoIntervalo = TimeSpan.Parse(txtRetorno.Text);
+                            viewModel.TotalIntervalo = (viewModel.RetornoIntervalo - viewModel.SaidaIntervalo);
+                            viewModel.Saida = TimeSpan.Parse(txtSaida.Text);
+                            viewModel.TotalTrabalhado = (viewModel.Saida - viewModel.Entrada - viewModel.TotalIntervalo);
+                            viewModel.Minutos = viewModel.TotalTrabalhado.TotalMinutes;
                             viewModel.LogPontoId = (int)LogPonto.ELog.PontoManual;
-                            viewModel.DescricaoLog = "Trabalhado/Lançamento manual";
+                            viewModel.MotivoId = Convert.ToInt32(cbMotivos.SelectedValue);
+
+                            logViewModel.StatusLogId = viewModel.LogPontoId;
+                            logViewModel.FuncionarioId = funcionario.Id;
+
+                            model.InsertHours(inserted: viewModel.Inserted,
+                                entrada: viewModel.Entrada,
+                                saidaIntervalo: viewModel.SaidaIntervalo,
+                                retornoIntervalo: viewModel.RetornoIntervalo,
+                                totalIntervalo: viewModel.TotalIntervalo,
+                                saida: viewModel.Saida,
+                                totalTrabalhado: viewModel.TotalTrabalhado,
+                                minutos: viewModel.Minutos,
+                                funcionarioId: viewModel.FuncionarioId,
+                                matricula: viewModel.Matricula,
+                                logPontoId: viewModel.LogPontoId,
+                                motivoId: viewModel.MotivoId);
+
+                            var logModel = new LogPonto(statusLogId: logViewModel.StatusLogId, logViewModel.FuncionarioId);
+
+                            _context.Add(model);
+                            _context.SaveChanges();
+
+                            _context.Add(logModel);
+                            _context.SaveChanges();
+
+                            CleanFields();
+                            GetByIdHorario(Convert.ToInt32(txtCodHoraFunc.Text), Convert.ToDateTime(dpDtInicio.Text), Convert.ToDateTime(dpDtFim.Text));
+                            txtData.Focus();
+                            txtData.Select();
                         }
-                        else if (cbMotivos.Text == "Atestado médico")
+                        else
                         {
-                            viewModel.LogPontoId = (int)LogPonto.ELog.Atestado;
-                            viewModel.DescricaoLog = "Atestado";
+                            MessageBox.Show($"Já existe registro de ponto para {funcionario.Nome} no dia {txtData.Text}.", "Alerta", MessageBoxButtons.OK,
+                            MessageBoxIcon.Error);
                         }
-
-                        logViewModel.StatusLogId = viewModel.LogPontoId;
-                        logViewModel.FuncionarioId = funcionario.Id;
-
-                        model.InsertHours(inserted: viewModel.Inserted,
-                            entrada: viewModel.Entrada,
-                            saidaIntervalo: viewModel.SaidaIntervalo,
-                            retornoIntervalo: viewModel.RetornoIntervalo,
-                            totalIntervalo: viewModel.TotalIntervalo,
-                            saida: viewModel.Saida,
-                            totalTrabalhado: viewModel.TotalTrabalhado,
-                            minutos: viewModel.Minutos,
-                            funcionarioId: viewModel.FuncionarioId,
-                            matricula: viewModel.Matricula,
-                            logPontoId: viewModel.LogPontoId);
-
-                        var logModel = new LogPonto(statusLogId: logViewModel.StatusLogId, logViewModel.FuncionarioId);
-
-                        _context.Add(model);
-                        _context.SaveChanges();
-
-                        _context.Add(logModel);
-                        _context.SaveChanges();
-
-                        CleanFields();
-                        GetByIdHorario(Convert.ToInt32(txtCodHoraFunc.Text), Convert.ToDateTime(dpDtInicio.Text), Convert.ToDateTime(dpDtFim.Text));
-                        txtData.Focus();
-                        txtData.Select();
                     }
                     else
                     {
@@ -624,7 +627,7 @@ namespace ERPMega
         {
             var data = GerarDadosRelatorio();
 
-            if(dgvFechamentoPonto.DataSource != null)
+            if (dgvFechamentoPonto.DataSource != null)
             {
                 var relatorio = new FrmRelatorioMensal(data, txtNomeFuncFechamento.Text, Convert.ToInt32(txtMatriculaFechamento.Text),
                                                     dtInicioFechamento.Value, dtFimFechamento.Value);
@@ -633,7 +636,7 @@ namespace ERPMega
             else
             {
                 return;
-            }            
+            }
         }
 
         private DataTable GerarDadosRelatorio()
