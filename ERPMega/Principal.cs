@@ -665,5 +665,31 @@ namespace ERPMega
             return data;
 
         }
+
+        private void cbMotivos_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if(cbMotivos.SelectedIndex == 1)
+            {
+                txtEntrada.Enabled = false;
+                txtSaidaAlmoco.Enabled = false;
+                txtRetorno.Enabled = false;
+                txtSaida.Enabled = false;
+                txtEntrada.Text = "00:00";
+                txtSaidaAlmoco.Text = "00:00";
+                txtRetorno.Text = "00:00";
+                txtSaida.Text = "00:00";
+            }
+            else
+            {
+                txtEntrada.Enabled = true;
+                txtSaidaAlmoco.Enabled = true;
+                txtRetorno.Enabled = true;
+                txtSaida.Enabled = true;
+                txtEntrada.Clear();
+                txtSaidaAlmoco.Clear();
+                txtRetorno.Clear();
+                txtSaida.Clear();
+            }
+        }
     }
 }

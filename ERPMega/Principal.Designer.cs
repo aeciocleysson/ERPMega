@@ -487,8 +487,9 @@ namespace ERPMega
             "Trabalhado"});
             this.cbMotivos.Location = new System.Drawing.Point(284, 79);
             this.cbMotivos.Name = "cbMotivos";
-            this.cbMotivos.Size = new System.Drawing.Size(121, 21);
+            this.cbMotivos.Size = new System.Drawing.Size(203, 21);
             this.cbMotivos.TabIndex = 35;
+            this.cbMotivos.SelectedIndexChanged += new System.EventHandler(this.cbMotivos_SelectedIndexChanged);
             // 
             // rbCorrigirHorario
             // 
