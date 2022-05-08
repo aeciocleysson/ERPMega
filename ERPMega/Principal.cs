@@ -247,6 +247,7 @@ namespace ERPMega
             txtRetorno.Clear();
             txtSaida.Clear();
             dgvHours.DataSource = null;
+            cbMotivos.SelectedIndex = -1;
         }
 
         private void InsertOrUpdatePonto(PontoViewModel viewModel)
@@ -264,11 +265,10 @@ namespace ERPMega
                         var funcionario = _context.Funcionario.Find(Convert.ToInt32(txtCodHoraFunc.Text));
 
                         var ponto = _context.Ponto.Any(a => a.FuncionarioId == funcionario.Id && a.Matricula == funcionario.Matricula &&
-                            a.Inserted == Convert.ToDateTime(txtData.Text) && a.IsDelete == false);
+                                                       a.Inserted == Convert.ToDateTime(txtData.Text) && a.IsDelete == false);
 
                         if (!ponto)
                         {
-
                             viewModel.Inserted = Convert.ToDateTime(txtData.Text);
                             viewModel.FuncionarioId = funcionario.Id;
                             viewModel.Matricula = funcionario.Matricula;
@@ -277,7 +277,7 @@ namespace ERPMega
                             viewModel.RetornoIntervalo = TimeSpan.Parse(txtRetorno.Text);
                             viewModel.TotalIntervalo = (viewModel.RetornoIntervalo - viewModel.SaidaIntervalo);
                             viewModel.Saida = TimeSpan.Parse(txtSaida.Text);
-                            viewModel.TotalTrabalhado = (viewModel.Saida - viewModel.Entrada - viewModel.TotalIntervalo);
+                            viewModel.TotalTrabalhado = Convert.ToInt32(cbMotivos.SelectedValue) == 4 ? TimeSpan.Parse("09:00") : (viewModel.Saida - viewModel.Entrada - viewModel.TotalIntervalo);
                             viewModel.Minutos = viewModel.TotalTrabalhado.TotalMinutes;
                             viewModel.LogPontoId = (int)LogPonto.ELog.PontoManual;
                             viewModel.MotivoId = Convert.ToInt32(cbMotivos.SelectedValue);
@@ -336,8 +336,7 @@ namespace ERPMega
                     if (!txtData.Text.Equals("  /  /") && !txtEntrada.Text.Equals(":") && !txtSaidaAlmoco.Text.Equals(":") &&
                         !txtRetorno.Text.Equals(":") && !txtSaida.Text.Equals(":") && !string.IsNullOrEmpty(cbMotivos.Text))
                     {
-                        var updatePonto = _context.Ponto.Find(Convert.ToInt32(txtId.Text));
-
+                        viewModel.Id = Convert.ToInt32(txtId.Text);
                         viewModel.Entrada = TimeSpan.Parse(txtEntrada.Text);
                         viewModel.SaidaIntervalo = TimeSpan.Parse(txtSaidaAlmoco.Text);
                         viewModel.RetornoIntervalo = TimeSpan.Parse(txtRetorno.Text);
@@ -346,6 +345,8 @@ namespace ERPMega
                         viewModel.TotalTrabalhado = (viewModel.Saida - viewModel.Entrada - viewModel.TotalIntervalo);
                         viewModel.Minutos = viewModel.TotalTrabalhado.TotalMinutes;
                         viewModel.FuncionarioId = Convert.ToInt32(txtCodHoraFunc.Text);
+
+                        var updatePonto = _context.Ponto.Find(viewModel.Id);
 
                         if (cbMotivos.Text == "Trabalhado")
                         {
@@ -668,7 +669,7 @@ namespace ERPMega
 
         private void cbMotivos_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if(cbMotivos.SelectedIndex == 1)
+            if (cbMotivos.SelectedIndex == 1)
             {
                 txtEntrada.Enabled = false;
                 txtSaidaAlmoco.Enabled = false;
