@@ -337,32 +337,21 @@ namespace ERPMega
                         !txtRetorno.Text.Equals(":") && !txtSaida.Text.Equals(":") && !string.IsNullOrEmpty(cbMotivos.Text))
                     {
                         viewModel.Id = Convert.ToInt32(txtId.Text);
+                        viewModel.FuncionarioId = Convert.ToInt32(txtCodHoraFunc.Text);
                         viewModel.Entrada = TimeSpan.Parse(txtEntrada.Text);
                         viewModel.SaidaIntervalo = TimeSpan.Parse(txtSaidaAlmoco.Text);
                         viewModel.RetornoIntervalo = TimeSpan.Parse(txtRetorno.Text);
                         viewModel.TotalIntervalo = (viewModel.RetornoIntervalo - viewModel.SaidaIntervalo);
                         viewModel.Saida = TimeSpan.Parse(txtSaida.Text);
-                        viewModel.TotalTrabalhado = (viewModel.Saida - viewModel.Entrada - viewModel.TotalIntervalo);
+                        viewModel.TotalTrabalhado = Convert.ToInt32(cbMotivos.SelectedValue) == 4 ? TimeSpan.Parse("09:00") : (viewModel.Saida - viewModel.Entrada - viewModel.TotalIntervalo);
                         viewModel.Minutos = viewModel.TotalTrabalhado.TotalMinutes;
-                        viewModel.FuncionarioId = Convert.ToInt32(txtCodHoraFunc.Text);
-
-                        var updatePonto = _context.Ponto.Find(viewModel.Id);
-
-                        if (cbMotivos.Text == "Trabalhado")
-                        {
-                            viewModel.LogPontoId = (int)LogPonto.ELog.PontoManual;
-                            viewModel.DescricaoLog = "Trabalhado/Lançamento manual";
-                        }
-                        else if (cbMotivos.Text == "Atestado médico")
-                        {
-                            viewModel.LogPontoId = (int)LogPonto.ELog.Atestado;
-                            viewModel.DescricaoLog = "Atestado";
-                        }
+                        viewModel.LogPontoId = (int)LogPonto.ELog.PontoManual;
+                        viewModel.MotivoId = Convert.ToInt32(cbMotivos.SelectedValue);
 
                         logViewModel.StatusLogId = viewModel.LogPontoId;
                         logViewModel.FuncionarioId = viewModel.FuncionarioId;
 
-                        var logModel = new LogPonto(statusLogId: logViewModel.StatusLogId, logViewModel.FuncionarioId);
+                        var updatePonto = _context.Ponto.Find(viewModel.Id);
 
                         updatePonto.UpdateHours(entrada: viewModel.Entrada,
                             saidaIntervalo: viewModel.SaidaIntervalo,
@@ -372,6 +361,8 @@ namespace ERPMega
                             totalTrabalhado: viewModel.TotalTrabalhado,
                             minutos: viewModel.Minutos,
                             logPontoId: viewModel.LogPontoId);
+
+                        var logModel = new LogPonto(statusLogId: logViewModel.StatusLogId, logViewModel.FuncionarioId);
 
                         _context.Ponto.Update(updatePonto);
                         _context.SaveChanges();
@@ -659,9 +650,7 @@ namespace ERPMega
                     item.Cells["Almoço"].Value.ToString(),
                     item.Cells["RetornoAlmoço"].Value.ToString(),
                     item.Cells["Saida"].Value.ToString(),
-                    item.Cells["Total"].Value.ToString()
-
-                           );
+                    item.Cells["Total"].Value.ToString());
             }
             return data;
 
