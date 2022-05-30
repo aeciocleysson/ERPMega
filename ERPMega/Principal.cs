@@ -284,6 +284,7 @@ namespace ERPMega
 
                             logViewModel.StatusLogId = viewModel.LogPontoId;
                             logViewModel.FuncionarioId = funcionario.Id;
+                            logViewModel.Inserted = viewModel.Inserted;
 
                             model.InsertHours(inserted: viewModel.Inserted,
                                 entrada: viewModel.Entrada,
@@ -298,7 +299,7 @@ namespace ERPMega
                                 logPontoId: viewModel.LogPontoId,
                                 motivoId: viewModel.MotivoId);
 
-                            var logModel = new LogPonto(statusLogId: logViewModel.StatusLogId, logViewModel.FuncionarioId);
+                            var logModel = new LogPonto(statusLogId: logViewModel.StatusLogId, logViewModel.FuncionarioId, logViewModel.Inserted);
 
                             _context.Add(model);
                             _context.SaveChanges();
@@ -337,6 +338,7 @@ namespace ERPMega
                         !txtRetorno.Text.Equals(":") && !txtSaida.Text.Equals(":") && !string.IsNullOrEmpty(cbMotivos.Text))
                     {
                         viewModel.Id = Convert.ToInt32(txtId.Text);
+                        viewModel.Inserted = Convert.ToDateTime(txtData.Text);
                         viewModel.FuncionarioId = Convert.ToInt32(txtCodHoraFunc.Text);
                         viewModel.Entrada = TimeSpan.Parse(txtEntrada.Text);
                         viewModel.SaidaIntervalo = TimeSpan.Parse(txtSaidaAlmoco.Text);
@@ -350,6 +352,7 @@ namespace ERPMega
 
                         logViewModel.StatusLogId = viewModel.LogPontoId;
                         logViewModel.FuncionarioId = viewModel.FuncionarioId;
+                        logViewModel.Inserted = viewModel.Inserted;
 
                         var updatePonto = _context.Ponto.Find(viewModel.Id);
 
@@ -362,7 +365,7 @@ namespace ERPMega
                             minutos: viewModel.Minutos,
                             logPontoId: viewModel.LogPontoId);
 
-                        var logModel = new LogPonto(statusLogId: logViewModel.StatusLogId, logViewModel.FuncionarioId);
+                        var logModel = new LogPonto(statusLogId: logViewModel.StatusLogId, logViewModel.FuncionarioId, logViewModel.Inserted);
 
                         _context.Ponto.Update(updatePonto);
                         _context.SaveChanges();

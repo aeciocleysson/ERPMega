@@ -1,4 +1,5 @@
-﻿using System.ComponentModel;
+﻿using System;
+using System.ComponentModel;
 
 namespace ERPMega.Model
 {
@@ -39,10 +40,11 @@ namespace ERPMega.Model
         {
 
         }
-        public LogPonto(int statusLogId, int funcionarioid)
+        public LogPonto(int statusLogId, int funcionarioid, DateTime inserted)
         {
             StatusLogId = statusLogId;
             FuncionarioId = funcionarioid;
+            Inserted = inserted;
         }
     }
 }
