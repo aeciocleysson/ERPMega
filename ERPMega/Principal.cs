@@ -280,7 +280,6 @@ namespace ERPMega
                             viewModel.TotalTrabalhado = Convert.ToInt32(cbMotivos.SelectedValue) == 4 ? TimeSpan.Parse("09:00") : (viewModel.Saida - viewModel.Entrada - viewModel.TotalIntervalo);
                             viewModel.Minutos = viewModel.TotalTrabalhado.TotalMinutes;
                             viewModel.LogPontoId = (int)LogPonto.ELog.PontoManual;
-                            viewModel.MotivoId = Convert.ToInt32(cbMotivos.SelectedValue);
 
                             logViewModel.StatusLogId = viewModel.LogPontoId;
                             logViewModel.FuncionarioId = funcionario.Id;
@@ -296,8 +295,7 @@ namespace ERPMega
                                 minutos: viewModel.Minutos,
                                 funcionarioId: viewModel.FuncionarioId,
                                 matricula: viewModel.Matricula,
-                                logPontoId: viewModel.LogPontoId,
-                                motivoId: viewModel.MotivoId);
+                                logPontoId: viewModel.LogPontoId);
 
                             var logModel = new LogPonto(statusLogId: logViewModel.StatusLogId, logViewModel.FuncionarioId, logViewModel.Inserted);
 
@@ -348,7 +346,6 @@ namespace ERPMega
                         viewModel.TotalTrabalhado = Convert.ToInt32(cbMotivos.SelectedValue) == 4 ? TimeSpan.Parse("09:00") : (viewModel.Saida - viewModel.Entrada - viewModel.TotalIntervalo);
                         viewModel.Minutos = viewModel.TotalTrabalhado.TotalMinutes;
                         viewModel.LogPontoId = (int)LogPonto.ELog.PontoManual;
-                        viewModel.MotivoId = Convert.ToInt32(cbMotivos.SelectedValue);
 
                         logViewModel.StatusLogId = viewModel.LogPontoId;
                         logViewModel.FuncionarioId = viewModel.FuncionarioId;
