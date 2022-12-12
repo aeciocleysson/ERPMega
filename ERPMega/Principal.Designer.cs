@@ -924,6 +924,7 @@ namespace ERPMega
             this.btnPesqFuncFechamento.TabIndex = 12;
             this.btnPesqFuncFechamento.Text = "Pesquisar";
             this.btnPesqFuncFechamento.UseVisualStyleBackColor = true;
+            this.btnPesqFuncFechamento.Click += new System.EventHandler(this.btnPesqFuncFechamento_Click);
             // 
             // btnFuncFechamento
             // 

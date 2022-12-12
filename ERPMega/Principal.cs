@@ -402,8 +402,8 @@ namespace ERPMega
             if (!string.IsNullOrEmpty(txtCodFuncFechamento.Text))
             {
                 id = Convert.ToInt32(txtCodFuncFechamento.Text);
-                dtInicio = Convert.ToDateTime(dpDtInicio.Value.ToString("dd/MM/yyyy"));
-                dtFim = Convert.ToDateTime(dpDtFim.Value.ToString("dd/MM/yyyy"));
+                //dtInicio = Convert.ToDateTime(dpDtInicio.Value.ToString("dd/MM/yyyy"));
+                //dtFim = Convert.ToDateTime(dpDtFim.Value.ToString("dd/MM/yyyy"));
 
                 var funcionario = _context.Ponto
                       .Where(w => w.FuncionarioId == id &&
@@ -680,6 +680,11 @@ namespace ERPMega
                 txtRetorno.Clear();
                 txtSaida.Clear();
             }
+        }
+
+        private void btnPesqFuncFechamento_Click(object sender, EventArgs e)
+        {
+            SelectFuncionarios();
         }
     }
 }
